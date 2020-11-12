@@ -15,5 +15,6 @@ pool.getConnection(function (err, connection) {
 })
 
 module.exports = {
-    load: sql => pool_query(sql)
+    load: sql => pool_query(sql),
+    add: (entity, tableName) => pool_query(`insert into ${tableName} set ? `, entity)
 }
