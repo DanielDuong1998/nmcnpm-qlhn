@@ -12,6 +12,11 @@ module.exports = {
         return db.add(entity, 'user');
     },
 
+    updateRefreshToken: (id, refresh_token) => {
+        const sql = `update user set refresh_token = '${refresh_token}' where id = '${id}'`;
+        return db.load(sql);
+    },
+
     getUsername: async user_name => {
         const sql = `select id from user where '${user_name}' = user_name`;
         const row = await db.load(sql);
@@ -22,5 +27,19 @@ module.exports = {
         const sql = `select id from user where '${email}' = email`;
         const row = await db.load(sql);
         return row[0];
-    }
+    },
+
+    singleRow: async user_name => {
+        const sql = `select * from user where '${user_name}' = user_name`;
+        const row = await db.load(sql);
+        return row;
+    },
+
+    getRefreshTokenById: async id => {
+        const sql = `select refresh_token from  user where '${id}' = id`;
+        const row = await db.load(sql);
+        return row[0];
+    },
+
+
 }

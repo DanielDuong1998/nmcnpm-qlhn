@@ -7,5 +7,13 @@
         "host": "localhost",
         "user": "root",
         "database": "quanlyhoinghi"
+    },
+    "auth": {
+        "secretPassword": [
+            "admin",
+            "user"
+        ],
+        "expiresIn": "30m",
+        "sizeRefreshToken": 80
     }
 }
