@@ -9,11 +9,9 @@
         "database": "quanlyhoinghi"
     },
     "auth": {
-        "secretPassword": [
-            "admin",
-            "user"
-        ],
+        "secretPassword": "HHIZ9ynjeYiPMFUEtC3heRm2HSjOPbqm",
         "expiresIn": "30m",
+        "algorithm": "RS256",
         "sizeRefreshToken": 80
     }
 }

@@ -11,7 +11,7 @@
  Target Server Version : 100414
  File Encoding         : 65001
 
- Date: 13/11/2020 00:02:18
+ Date: 15/11/2020 12:03:50
 */
 
 SET NAMES utf8mb4;
@@ -34,7 +34,7 @@ CREATE TABLE `admin`  (
 -- ----------------------------
 -- Records of admin
 -- ----------------------------
-INSERT INTO `admin` VALUES ('7e37ea96-2e84-4bcf-94b1-f79015d53117', 'Âu Dương Phong', 'auphong', '$2a$08$6fSgE6B0yDHXFYhopTafgOT6DXZaZJfRClCvomBTXdJDhb8tvrTim', 'auphong009@gmail.com', NULL);
+INSERT INTO `admin` VALUES ('7e37ea96-2e84-4bcf-94b1-f79015d53117', 'Âu Dương Phong', 'auphong', '$2a$08$6fSgE6B0yDHXFYhopTafgOT6DXZaZJfRClCvomBTXdJDhb8tvrTim', 'auphong009@gmail.com', 'uPi1YxYxpCKjmbXbgakrT1GgBVWOX4itCLMCFzRkx3rPtR2c3IDFkJQWKWcvnxUufKP7NHYEAKwLfwz2');
 
 -- ----------------------------
 -- Table structure for conference
@@ -82,8 +82,8 @@ CREATE TABLE `user`  (
 -- ----------------------------
 -- Records of user
 -- ----------------------------
-INSERT INTO `user` VALUES ('61a66363-e6bd-40dd-8588-e58bc92ebe4a', 'Âu Dương Phong', 'auphong', '$2a$08$1GSbXW43U4gH.4h3zsqD5uNuri/yuI/948Pv1QpQ48ChJT7qH6O7C', 'auphong009@gmail.com', 1, NULL);
-INSERT INTO `user` VALUES ('fd5bd7a4-52c3-474d-a482-74e01b318311', 'Dương Văn Khang', 'dvkhangnt', '$2a$08$zFJlK5RPdMFjFBJTvvTAduGq4WJGkSHOXxdDfIo9fsFOcQO0xcXk6', 'dvkhangnt@gmail.com', 1, NULL);
+INSERT INTO `user` VALUES ('61a66363-e6bd-40dd-8588-e58bc92ebe4a', 'Âu Dương Phong', 'auphong', '$2a$08$1GSbXW43U4gH.4h3zsqD5uNuri/yuI/948Pv1QpQ48ChJT7qH6O7C', 'auphong009@gmail.com', 1, 'wm19zMdOWq9zJFoaaBiUT9kuPBt44stBiJn8bhwlEvNGKdDUn64nUuWDhMq01ld5NnW9NlRiPkpZcLJw');
+INSERT INTO `user` VALUES ('fd5bd7a4-52c3-474d-a482-74e01b318311', 'Dương Văn Khang', 'dvkhangnt', '$2a$08$zFJlK5RPdMFjFBJTvvTAduGq4WJGkSHOXxdDfIo9fsFOcQO0xcXk6', 'dvkhangnt@gmail.com', 1, '');
 
 -- ----------------------------
 -- Table structure for venue

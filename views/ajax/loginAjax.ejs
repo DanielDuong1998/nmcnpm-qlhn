@@ -1,0 +1,39 @@
+<script>
+    const login = _ => {
+        console.log('login')
+        $(_ => {
+            let data = {
+                user_name: $('#exampleInputEmail1').val(),
+                password: $('#exampleInputPassword1').val(),
+                mode: 1
+            };
+
+            $.ajax({
+                url: '/auth',
+                method: 'POST',
+                dataType: 'json',
+                data,
+                timeout: 10000
+            }).done(data => {
+                let { status, access_token, refresh_token, id, user_name, name, email } = data;
+
+                if (status === 1) {
+                    console.log('data: ', data);
+                    localStorage.setItem('x-access-token', access_token);
+                    localStorage.setItem('x-refresh-token', refresh_token);
+                    localStorage.setItem('id', id);
+                    localStorage.setItem('user_name', user_name);
+                    localStorage.setItem('name', name);
+                    localStorage.setItem('email', email);
+
+                    location.href = '/user/password';
+                }
+                else {
+                    console.log('login failed');
+                }
+            })
+
+
+        });
+    }
+</script>
