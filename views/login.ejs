@@ -4,6 +4,8 @@
 <head>
     <% include partials/head =title %>
     <% include ajax/loginAjax %>
+    <link rel='stylesheet' href='/stylesheets/login.css'/>
+    <script src="../public/javascripts/login.js"></script>
 </head>
 
 <body>
@@ -25,6 +27,7 @@
             <input type="checkbox" class="form-check-input" id="exampleCheck1">
             <label class="form-check-label" for="exampleCheck1">Check me out</label>
         </div>
+        
         <button type="button" class="btn btn-primary" onclick="login()">Submit</button>
     </form>
 </body>
