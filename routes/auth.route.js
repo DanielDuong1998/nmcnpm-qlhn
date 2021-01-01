@@ -14,6 +14,10 @@ const router = express.Router();
 const urlencodedParser = bodyParser.urlencoded({ extended: false });
 
 
+router.get('/', (req, res) => {
+    res.render('login', { title: 'Express' });
+})
+
 router.post('/', urlencodedParser, async (req, res) => {
     // let body = {
     //     user_name: 'dvkhangnt',
@@ -21,15 +25,20 @@ router.post('/', urlencodedParser, async (req, res) => {
     //     mode: '1' // 1 = > user, 0 => admin
     // }
 
+
     const { body } = req;
     const entity = {
         user_name: body.user_name,
         password: body.password
     }
 
+    console.log('body: ', body);
+
+
     let ret = await login(entity, body);
 
     res.json(ret);
+
 })
 
 const generateAcessToken = (id, mode, secret) => {
@@ -54,7 +63,7 @@ const login = async (entity, body) => {
         ret = { status: -1, msg: 'your account is blocked' }
     }
     else {
-        const access_token = generateAcessToken(row.id, body.mode, config.auth.secretPassword[body.mode]);
+        const access_token = generateAcessToken(row.id, body.mode, config.auth.secretPassword);
 
         let refresh_token = '';
         const refreshTokeInDb = body.mode == 1 ? await userModel.getRefreshTokenById(row.id) : await adminModel.getRefreshTokenById(row.id);
