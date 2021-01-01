@@ -15,9 +15,6 @@ module.exports = {
             return null;
         }
 
-        console.log('entity: ', entity);
-        console.log('row: ', row[0]);
-
         const passwordHash = row[0].password;
         if (bcrypt.compareSync(entity.password, passwordHash)) {
             return row[0];
