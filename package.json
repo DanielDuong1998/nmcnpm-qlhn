@@ -13,6 +13,8 @@
     "debug": "~2.6.9",
     "ejs": "~2.6.1",
     "express": "~4.16.1",
+    "express-handlebars": "^5.2.0",
+    "handlebars": "^4.7.6",
     "http-errors": "~1.6.3",
     "jsonwebtoken": "^8.5.1",
     "moment-timezone": "^0.5.31",

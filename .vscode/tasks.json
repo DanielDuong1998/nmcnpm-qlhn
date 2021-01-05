@@ -3,10 +3,10 @@
 	"tasks": [
 		{
 			"type": "npm",
-			"script": "install",
+			"script": "start",
 			"problemMatcher": [],
-			"label": "npm: install",
-			"detail": "install dependencies from package",
+			"label": "npm: start",
+			"detail": "node ./bin/www",
 			"group": {
 				"kind": "build",
 				"isDefault": true
