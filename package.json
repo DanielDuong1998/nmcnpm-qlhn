@@ -1,25 +1,26 @@
 {
-  "name": "quanlyhoinghi",
-  "version": "0.0.0",
-  "private": true,
-  "scripts": {
-    "start": "node ./bin/www"
-  },
-  "dependencies": {
-    "bcryptjs": "^2.4.3",
-    "body-parser": "^1.19.0",
-    "casual": "^1.6.2",
-    "cookie-parser": "~1.4.4",
-    "debug": "~2.6.9",
-    "ejs": "~2.6.1",
-    "express": "~4.16.1",
-    "express-handlebars": "^5.2.0",
-    "handlebars": "^4.7.6",
-    "http-errors": "~1.6.3",
-    "jsonwebtoken": "^8.5.1",
-    "moment-timezone": "^0.5.31",
-    "morgan": "~1.9.1",
-    "mysql": "^2.18.1",
-    "rand-token": "^1.0.1"
-  }
+    "name": "quanlyhoinghi",
+    "version": "0.0.0",
+    "private": true,
+    "scripts": {
+        "start": "node ./bin/www"
+    },
+    "dependencies": {
+        "bcryptjs": "^2.4.3",
+        "body-parser": "^1.19.0",
+        "bootstrap": "^5.0.0-beta1",
+        "casual": "^1.6.2",
+        "cookie-parser": "~1.4.4",
+        "debug": "~2.6.9",
+        "ejs": "~2.6.1",
+        "express": "~4.16.1",
+        "express-handlebars": "^5.2.0",
+        "handlebars": "^4.7.6",
+        "http-errors": "~1.6.3",
+        "jsonwebtoken": "^8.5.1",
+        "moment-timezone": "^0.5.31",
+        "morgan": "~1.9.1",
+        "mysql": "^2.18.1",
+        "rand-token": "^1.0.1"
+    }
 }

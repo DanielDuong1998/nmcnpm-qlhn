@@ -37,6 +37,13 @@ app.get('/', function(req, res) {
     res.render('home');
 });
 
+
+app.get('/index', function(req, res) {
+    res.render('index', {
+        layout: false
+    });
+});
+
 app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
