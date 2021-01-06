@@ -5,6 +5,8 @@ const path = require('path');
 const cookieParser = require('cookie-parser');
 const logger = require('morgan');
 
+
+
 //const indexRouter = require('./routes/index.route');
 const usersRouter = require('./routes/user.route');
 const adminRouter = require('./routes/admin.route');
@@ -16,6 +18,8 @@ app.use(express.urlencoded({
     extended: true
 }));
 
+app.use('/public', express.static('public'));
+app.use('/stylesheets', express.static('stylesheets'));
 
 // view engine setup
 app.engine('hbs', exphbs({
@@ -31,12 +35,15 @@ app.engine('hbs', exphbs({
 }));
 app.set('view engine', 'hbs');
 
-//app.set('views', path.join(__dirname, 'views'));
+
 
 app.get('/', function(req, res) {
     res.render('home');
 });
 
+app.get('/InforUser', function(req, res) {
+    res.render('./viewUser/InforUser');
+});
 
 app.get('/index', function(req, res) {
     res.render('index', {
