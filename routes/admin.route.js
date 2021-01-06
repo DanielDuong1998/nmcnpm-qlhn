@@ -8,14 +8,14 @@ const router = express.Router();
 const urlencodedParser = bodyParser.urlencoded({ extended: false });
 
 /* GET users listing. */
-router.get('/', function (req, res, next) {
+router.get('/', function(req, res, next) {
     res.send('respond with a resource');
 });
 
 //tao tai khoan
-router.post('/', urlencodedParser, async (req, res) => {
+router.post('/', urlencodedParser, async(req, res) => {
     const { body } = req;
-    const entity = { ...body };
+    const entity = {...body };
 
     //checkUsername
     const id1 = await checkUsername(entity.user_name);
@@ -51,3 +51,4 @@ const checkEmail = async email => {
 }
 
 module.exports = router;
+//adddddd
