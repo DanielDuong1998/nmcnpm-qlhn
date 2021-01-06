@@ -14,10 +14,9 @@ const router = express.Router();
 const urlencodedParser = bodyParser.urlencoded({ extended: false });
 
 
-router.get('/', (req, res)=>{
-res.render('login', {title: 'Login'})
+router.get('/', (req, res) => {
+    res.render('login', { title: 'Express' });
 })
-
 
 router.post('/', urlencodedParser, async (req, res) => {
     // let body = {
