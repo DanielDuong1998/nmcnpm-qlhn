@@ -44,7 +44,7 @@ app.get('/index', function (req, res) {
 // const adminRouter = require('./routes/admin.route');
 // const authRouter = require('./routes/auth.route');
 
-// app.use(logger('dev'));
+app.use(logger('dev'));
 // app.use(express.json());
 // app.use(express.urlencoded({ extended: false }));
 // app.use(cookieParser());
@@ -54,6 +54,9 @@ app.get('/index', function (req, res) {
 
 //app.use('/', indexRouter);
 app.use('/user', require('./routes/user.route'));
+app.use('/conference', require('./routes/conference.route'));
+app.use('/venue', require('./routes/venue.route'));
+// app.use('/venue', require('./routes/venue.route'));
 // app.use('/user', usersRouter);
 // app.use('/admin', adminRouter);
 // app.use('/auth', authRouter);
