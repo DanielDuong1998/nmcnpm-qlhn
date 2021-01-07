@@ -16,9 +16,4 @@ router.get('/', async (req, res) => {
 })
 
 
-
-// lấy danh sách hội nghị theo id phòng
-// lấy danh sách hội nghị theo thời gian
-// sort a -> Z
-// sort z -> a
 module.exports = router;
