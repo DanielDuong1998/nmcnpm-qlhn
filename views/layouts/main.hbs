@@ -13,10 +13,38 @@
 
 <body>
   {{> nav}}
-  {{> banner}}
-  {{> filter_sort}}
 
-  {{{body}}}
+  <div class="container-fluid mt-4">
+    <div class="row">
+      <div class="col-sm-3">
+        <div class="card mb-3">
+          <h5 class="card-header">Featured</h5>
+          <div class="list-group list-group-flush">
+            {{#each lcCategories}}
+            <a href="/products/byCat/{{CatID}}"
+              class="list-group-item list-group-item-action {{#if isActive}}active{{/if}}">
+              {{CatName}}
+              {{#if ProductCount}}
+              <span class="badge badge-pill badge-danger float-right">{{ProductCount}}</span>
+              {{/if}}
+            </a>
+            {{/each}}
+          </div>
+        </div>
+        <div class="card">
+          <h5 class="card-header">Featured</h5>
+          <div class="card-body">
+            <h5 class="card-title">Special title treatment</h5>
+            <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+            <a href="#" class="btn btn-primary">Go somewhere</a>
+          </div>
+        </div>
+      </div>
+      <div class="col-sm-9">
+        {{{body}}}
+      </div>
+    </div>
+  </div>
 
   {{> footer}}
 
