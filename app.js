@@ -24,21 +24,29 @@ app.engine('hbs', exphbs({
 }));
 app.set('view engine', 'hbs');
 
-app.get('/', function(req, res) {
+app.get('/', function(req, res, next) {
     res.render('home');
 });
 
 app.get('/index', function(req, res) {
-    res.render('index');
-    // const show = +req.query.show || 0;
-    // const visible = show !== 0;
-
-    // res.render('index', {
-    //     layout: false,
-    //     data: { visible: visible }
-    // });
+    res.render('viewUser/index');
 });
 
+app.get('/info', function(req, res) {
+    res.render('viewUser/info');
+});
+
+app.get('/bs4', function(req, res) {
+    // res.sendFile(`${__dirname}/bs4.html`);
+
+    const show = +req.query.show || 0;
+    const visible = show !== 0;
+
+    res.render('bs4', {
+        layout: false,
+        data: { visible: visible }
+    });
+});
 
 // //const indexRouter = require('./routes/index.route');
 // const usersRouter = require('./routes/user.route');
