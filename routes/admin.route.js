@@ -7,6 +7,8 @@ const adminModel = require('../models/admin.model');
 const router = express.Router();
 const urlencodedParser = bodyParser.urlencoded({ extended: false });
 
+
+
 /* GET users listing. */
 router.get('/', function(req, res, next) {
     res.send('respond with a resource');
@@ -38,6 +40,10 @@ router.post('/', urlencodedParser, async(req, res) => {
 
     res.send('completed');
 
+});
+
+router.get('/newConference', function(req, res) {
+    res.render('viewAdmin/newConference');
 });
 
 const checkUsername = async username => {

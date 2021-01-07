@@ -54,6 +54,8 @@ app.get('/index', function(req, res) {
 
 //app.use('/', indexRouter);
 app.use('/user', require('./routes/user.route'));
+
+app.use('/admin', require('./routes/admin.route'));
 // app.use('/user', usersRouter);
 // app.use('/admin', adminRouter);
 // app.use('/auth', authRouter);
