@@ -1,44 +1,126 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 
 <head>
-  <% include partials/head=title %>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hội nghị</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" 
+    integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+
 </head>
 
 <body>
-  <form class="row gy-2 gx-3 align-items-center">
-    <div class="col-auto">
-      <label class="visually-hidden" for="autoSizingInput">Name</label>
-      <input type="text" class="form-control" id="autoSizingInput" placeholder="Jane Doe">
-    </div>
-    <div class="col-auto">
-      <label class="visually-hidden" for="autoSizingInputGroup">Username</label>
-      <div class="input-group">
-        <div class="input-group-text">@</div>
-        <input type="text" class="form-control" id="autoSizingInputGroup" placeholder="Username">
+
+  {{> filter_sort}}
+
+  <div class="container-fluid">
+    <h2>Carousel Example</h2>
+    <div id="myCarousel" class="carousel slide" data-ride="carousel">
+      <!-- Indicators -->
+      <ol class="carousel-indicators">
+        <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+        <li data-target="#myCarousel" data-slide-to="1"></li>
+        <li data-target="#myCarousel" data-slide-to="2"></li>
+      </ol>
+
+      <!-- Wrapper for slides -->
+      <div class="carousel-inner">
+
+        <div class="item active">
+          <img src="https://images.tkbcdn.com/1/1560/600/Upload/eventcover/2020/11/22/81992C.jpg"
+            alt="Khóa học Advanced Power Query" style="width:100%;">
+          <div class="carousel-caption">
+            <h3>Khóa học Advanced Power Query</h3>
+            <p>Trung tâm tư vấn và đào tạo UniTrain
+              Lầu 4, tòa nhà Thiên Sơn, 5 Nguyễn Gia Thiều, phường 6, Quận 3, Thành Phố Hồ Chí Minh
+            </p>
+          </div>
+        </div>
+
+        <div class="item">
+          <img src="https://images.tkbcdn.com/1/1560/600/Upload/eventcover/2021/01/04/FB5CFC.jpg"
+            alt="Digital Marketing F&B Workshop" style="width:100%;">
+          <div class="carousel-caption">
+            <h3>Digital Marketing F&B Workshop</h3>
+            <p>Spiced Co-working
+              15/1 Duong so 10, Binh An Ward, Quận 2, Thành Phố Hồ Chí Minh
+            </p>
+          </div>
+        </div>
+
+        <div class="item">
+          <img src="https://images.tkbcdn.com/1/1560/600/Upload/eventcover/2020/11/22/61014C.jpg"
+            alt="Khóa học Ứng dụng SQL trong xử lý dữ liệu" style="width:100%;">
+          <div class="carousel-caption">
+            <h3>Khóa học Ứng dụng SQL trong xử lý dữ liệu</h3>
+            <p>Trung tâm tư vấn và đào tạo UniTrain
+              Lầu 4, tòa nhà Thiên Sơn, 5 Nguyễn Gia Thiều, phường 6, Quận 3, Thành Phố Hồ Chí Minh
+            </p>
+          </div>
+        </div>
+
       </div>
+
+      <!-- Left and right controls -->
+      <a class="left carousel-control" href="#myCarousel" data-slide="prev">
+        <span class="glyphicon glyphicon-chevron-left"></span>
+        <span class="sr-only">Previous</span>
+      </a>
+      <a class="right carousel-control" href="#myCarousel" data-slide="next">
+        <span class="glyphicon glyphicon-chevron-right"></span>
+        <span class="sr-only">Next</span>
+      </a>
     </div>
-    <div class="col-auto">
-      <label class="visually-hidden" for="autoSizingSelect">Preference</label>
-      <select class="form-select" id="autoSizingSelect">
-        <option selected>Choose...</option>
-        <option value="1">One</option>
-        <option value="2">Two</option>
-        <option value="3">Three</option>
-      </select>
+  </div>
+
+  <div class="main container-fluid d-flex justify-content-center">
+    <div class="album py-5 bg-light">
+      <form class="row gy-2 gx-3 align-items-center">
+        <div class="col-auto">
+          <label class="visually-hidden" for="autoSizingInput">Name</label>
+          <input type="text" class="form-control" id="autoSizingInput" placeholder="Jane Doe">
+        </div>
+        <div class="col-auto">
+          <label class="visually-hidden" for="autoSizingInputGroup">Username</label>
+          <div class="input-group">
+            <div class="input-group-text">@</div>
+            <input type="text" class="form-control" id="autoSizingInputGroup" placeholder="Username">
+          </div>
+        </div>
+        <div class="col-auto">
+          <label class="visually-hidden" for="autoSizingSelect">Preference</label>
+          <select class="form-select" id="autoSizingSelect">
+            <option selected>Choose...</option>
+            <option value="1">One</option>
+            <option value="2">Two</option>
+            <option value="3">Three</option>
+          </select>
+        </div>
+        <div class="col-auto">
+          <div class="form-check">
+            <input class="form-check-input" type="checkbox" id="autoSizingCheck">
+            <label class="form-check-label" for="autoSizingCheck">
+              Remember me
+            </label>
+          </div>
+        </div>
+        <div class="col-auto">
+          <button type="submit" class="btn btn-primary">Submit</button>
+        </div>
+      </form>
     </div>
-    <div class="col-auto">
-      <div class="form-check">
-        <input class="form-check-input" type="checkbox" id="autoSizingCheck">
-        <label class="form-check-label" for="autoSizingCheck">
-          Remember me
-        </label>
-      </div>
-    </div>
-    <div class="col-auto">
-      <button type="submit" class="btn btn-primary">Submit</button>
-    </div>
-  </form>
+  </div>
+
+
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW"
+    crossorigin="anonymous"></script>
 </body>
 
 </html>

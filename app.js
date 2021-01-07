@@ -1,6 +1,7 @@
 const createError = require('http-errors');
 const express = require('express');
 const exphbs = require('express-handlebars');
+require('express-async-errors');
 const path = require('path');
 const cookieParser = require('cookie-parser');
 const logger = require('morgan');
@@ -20,11 +21,6 @@ app.engine('hbs', exphbs({
     extname: '.hbs',
     layoutsDir: 'views/layouts',
     partialsDir: 'views/partials',
-    helpers: {
-        format(val) {
-            return numeral(val).format('0,0') + 'd';
-        }
-    }
 }));
 app.set('view engine', 'hbs');
 
@@ -33,9 +29,14 @@ app.get('/', function(req, res) {
 });
 
 app.get('/index', function(req, res) {
-    res.render('index', {
-        layout: false
-    });
+    res.render('index');
+    // const show = +req.query.show || 0;
+    // const visible = show !== 0;
+
+    // res.render('index', {
+    //     layout: false,
+    //     data: { visible: visible }
+    // });
 });
 
 
