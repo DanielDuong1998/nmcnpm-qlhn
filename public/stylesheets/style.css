@@ -30,15 +30,10 @@ body {
     flex: auto;
     justify-content: space-around;
 }
-<<<<<<< HEAD
-.footer_ebox{
-  color: #999999;
-  font-size: 13px;
-  font-family: "Merriweather Sans";
-=======
 
-.footer b {
+
+  .footer b {
     color: #ACD25A;
     font-size: 20px;
->>>>>>> 44be3e1014fbd4e9dced538adf9c75372bc40d77
 }
+
