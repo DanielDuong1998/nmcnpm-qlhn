@@ -1,38 +1,44 @@
-
 body {
-  padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
-  background-color: #e8e9ec;
+    font: 17px "Lucida Grande", Helvetica, Arial, sans-serif;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
 }
 
-a {
-  color: #00b7ff;
+.footer p,
+.footer_title,
+.footer_ebox {
+    color: #999999;
+    font-size: 13px;
 }
-p{
-  color: #999999;
-  font-size: 13px;
-  font-family: Merriweather Sans;
+
+.footer_title {
+    font-size: 15px;
+    font-weight: bold;
 }
-.footer{
-  padding-top: 20px;
-  position:absolute;
-  bottom:0;
-  width:100%;
-  background: #282F3F;
+
+.footer a {
+    color: #00b7ff;
 }
-.footer_title{
-  color: #999999;
-  font-size: 15px;
-  font-family: Merriweather Sans;
-  font-weight: bold;
+
+.footer {
+    flex: auto;
+    background-color: #282F3F;
+    flex-direction: column;
 }
-b{
-  color: #ACD25A;
-  font-size: 20px;
-  font-family: Merriweather Sans;
+
+.footer-area {
+    width: 100%;
+    flex: auto;
+    justify-content: space-around;
 }
+<<<<<<< HEAD
 .footer_ebox{
   color: #999999;
   font-size: 13px;
   font-family: "Merriweather Sans";
+=======
+
+.footer b {
+    color: #ACD25A;
+    font-size: 20px;
+>>>>>>> 44be3e1014fbd4e9dced538adf9c75372bc40d77
 }
