@@ -12,78 +12,82 @@ const router = express.Router();
 const urlencodedParser = bodyParser.urlencoded({ extended: false });
 
 /* GET users listing. */
-router.get('/', function (req, res, next) {
-  res.render('login', { title: 'Login' });
+router.get('/', function(req, res, next) {
+    res.render('login', { title: 'Login' });
 });
 
 //tao tai khoan
-router.post('/', urlencodedParser, async (req, res) => {
-  const { body } = req;
-  const entity = { ...body };
+router.post('/', urlencodedParser, async(req, res) => {
+    const { body } = req;
+    const entity = {...body };
 
-  //checkUsername
-  const id1 = await checkUsername(entity.user_name);
-  if (id1) {
-    res.json({ msg: 'username is exist' });
-    return;
-  }
+    //checkUsername
+    const id1 = await checkUsername(entity.user_name);
+    if (id1) {
+        res.json({ msg: 'username is exist' });
+        return;
+    }
 
-  //checkEmail
-  const id2 = await checkEmail(entity.email);
-  if (id2) {
-    res.json({ msg: 'email is exist' });
-    return;
-  }
+    //checkEmail
+    const id2 = await checkEmail(entity.email);
+    if (id2) {
+        res.json({ msg: 'email is exist' });
+        return;
+    }
 
-  //create id by casual and 
-  const id = casual.uuid;
-  entity.id = id;
-  entity.is_active = 1;
-  await userModel.add(entity);
+    //create id by casual and 
+    const id = casual.uuid;
+    entity.id = id;
+    entity.is_active = 1;
+    await userModel.add(entity);
 
-  res.send('completed');
+    res.send('completed');
 
 });
 
-router.get('/password', urlencodedParser, async (req, res) => {
-  console.log('get here');
-  res.render('forgetPassword', { title: 'Quên Mật Khẩu' });
+router.get('/password', urlencodedParser, async(req, res) => {
+    console.log('get here');
+    res.render('forgetPassword', { title: 'Quên Mật Khẩu' });
 });
 
-router.put('/password', middleware.verifyAccessToken, async (req, res) => {
-  const { body } = req;
+router.put('/password', middleware.verifyAccessToken, async(req, res) => {
+    const { body } = req;
 
-  if (body.role === 0) return res.json({ status: -1 });
+    if (body.role === 0) return res.json({ status: -1 });
 
-  let verifyPw = await verifyPassword(body.id, body.old_password);
-  if (!verifyPw) return res.json({ status: -1 });
+    let verifyPw = await verifyPassword(body.id, body.old_password);
+    if (!verifyPw) return res.json({ status: -1 });
 
-  const entity = {
-    id: body.id,
-    old_password: body.old_password,
-    new_password: body.new_password
-  };
+    const entity = {
+        id: body.id,
+        old_password: body.old_password,
+        new_password: body.new_password
+    };
 
-  await userModel.changePassword(entity);
+    await userModel.changePassword(entity);
 
-  res.json({
-    status: 1
-  })
+    res.json({
+        status: 1
+    })
 });
 
 const checkUsername = async username => {
-  const id = await userModel.getUsername(username);
-  return id;
+    const id = await userModel.getUsername(username);
+    return id;
 }
 
 const checkEmail = async email => {
-  const id = await userModel.getEmail(email);
-  return id;
+    const id = await userModel.getEmail(email);
+    return id;
 }
 
-const verifyPassword = async (id, password) => {
-  let passwordHash = await userModel.getPasswordById(id);
-  return bcrypt.compareSync(password, passwordHash.password);
+const verifyPassword = async(id, password) => {
+    let passwordHash = await userModel.getPasswordById(id);
+    return bcrypt.compareSync(password, passwordHash.password);
 }
+
+router.get('/inforuser', function(req, res) {
+    res.render('viewUser/InforUser');
+})
 
 module.exports = router;
