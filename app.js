@@ -71,8 +71,20 @@ app.use('/user', require('./routes/user.route'));
 
 
 
+// app.get('/', function(req, res, next) {
+//     res.render('home');
+// });
 
-
+app.use('/login', function(req, res) {
+    res.render('vwLogin/login', {
+        layout: false
+    })
+});
+app.use('/signup', function(req, res) {
+    res.render('vwLogin/signup', {
+        layout: false
+    })
+});
 
 
 
