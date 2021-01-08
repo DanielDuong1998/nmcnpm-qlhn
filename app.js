@@ -14,7 +14,6 @@ app.use(express.urlencoded({
 }));
 
 app.use('/public', express.static('public'));
-// app.use(express.static('public'));
 
 // view engine setup
 app.engine('hbs', exphbs({
@@ -25,7 +24,6 @@ app.engine('hbs', exphbs({
 }));
 app.set('view engine', 'hbs');
 
-<<<<<<< HEAD
 app.get('/', function (req, res) {
     res.render('home');
 });
@@ -39,31 +37,8 @@ app.get('/index', function (req, res) {
     //     layout: false,
     //     data: { visible: visible }
     // });
-=======
-app.get('/', function(req, res, next) {
-    res.render('home');
 });
 
-app.get('/index', function(req, res) {
-    res.render('viewUser/index');
->>>>>>> e92d49e4aab29b9593a9efff4eaaf9fa16727d8a
-});
-
-app.get('/info', function(req, res) {
-    res.render('viewUser/info');
-});
-
-app.get('/bs4', function(req, res) {
-    // res.sendFile(`${__dirname}/bs4.html`);
-
-    const show = +req.query.show || 0;
-    const visible = show !== 0;
-
-    res.render('bs4', {
-        layout: false,
-        data: { visible: visible }
-    });
-});
 
 // //const indexRouter = require('./routes/index.route');
 // const usersRouter = require('./routes/user.route');
