@@ -12,14 +12,18 @@ const router = express.Router();
 const urlencodedParser = bodyParser.urlencoded({ extended: false });
 
 /* GET users listing. */
-router.get('/', function(req, res, next) {
-    res.render('login', { title: 'Login' });
+router.get('/', async (req, res) => {
+    const ret = await userModel.all();
+    res.json({
+        data: ret
+    })
+    //res.render('login', { title: 'Login' });
 });
 
 //tao tai khoan
-router.post('/', urlencodedParser, async(req, res) => {
+router.post('/', urlencodedParser, async (req, res) => {
     const { body } = req;
-    const entity = {...body };
+    const entity = { ...body };
 
     //checkUsername
     const id1 = await checkUsername(entity.user_name);
@@ -45,12 +49,12 @@ router.post('/', urlencodedParser, async(req, res) => {
 
 });
 
-router.get('/password', urlencodedParser, async(req, res) => {
+router.get('/password', urlencodedParser, async (req, res) => {
     console.log('get here');
     res.render('forgetPassword', { title: 'Quên Mật Khẩu' });
 });
 
-router.put('/password', middleware.verifyAccessToken, async(req, res) => {
+router.put('/password', middleware.verifyAccessToken, async (req, res) => {
     const { body } = req;
 
     if (body.role === 0) return res.json({ status: -1 });
@@ -81,13 +85,17 @@ const checkEmail = async email => {
     return id;
 }
 
-const verifyPassword = async(id, password) => {
+const verifyPassword = async (id, password) => {
     let passwordHash = await userModel.getPasswordById(id);
     return bcrypt.compareSync(password, passwordHash.password);
 }
 
-router.get('/inforuser', function(req, res) {
-    res.render('viewUser/InforUser');
+router.get('/info', function (req, res) {
+    res.render('viewUser/info');
+})
+
+router.get('/index', function (req, res) {
+    res.render('viewUser/index');
 })
 
 module.exports = router;
