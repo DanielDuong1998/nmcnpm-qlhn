@@ -42,10 +42,21 @@ router.post('/', urlencodedParser, async(req, res) => {
 
 });
 
+// mấy đường đẫn để test view
 router.get('/newConference', function(req, res) {
     res.render('viewAdmin/newConference');
 });
+router.get('/userManage', function(req, res) {
+    res.render('viewAdmin/userManage');
+});
+router.get('/allInfoU', function(req, res) {
+    res.render('viewAdmin/allInfoU');
+});
+router.get('/singleInfoU', function(req, res) {
+    res.render('viewAdmin/singleInfoU');
+});
 
+////////////////////////////////////////
 const checkUsername = async username => {
     const id = await adminModel.getUsername(username);
     return id;

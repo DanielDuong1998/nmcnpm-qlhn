@@ -1,12 +1,14 @@
 const mysql = require('mysql');
-const { promisify } = require('util');
+const util = require('util')
+    // const { promisify } = require('util');
 const config = require('../configs/default.json');
 
 const pool = mysql.createPool(config.mysql);
 
-const pool_query = promisify(pool.query).bind(pool);
+const pool_query = util.promisify(pool.query).bind(pool);
+// const pool_query = promisify(pool.query).bind(pool);
 
-pool.getConnection(function (err, connection) {
+pool.getConnection(function(err, connection) {
     if (err) {
         console.log('failure connect database!');
         throw err;
