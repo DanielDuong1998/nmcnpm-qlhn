@@ -4,7 +4,7 @@ const momentTz = require('moment-timezone');
 const db = require('../utils/db');
 
 module.exports = {
-    all: db.load('SELECT * FROM user'),
+    all: _ => db.load('SELECT * FROM user'),
 
     add: entity => {
         const hash = bcrypt.hashSync(entity.password, 8);

@@ -24,36 +24,28 @@ app.engine('hbs', exphbs({
 }));
 app.set('view engine', 'hbs');
 
-app.get('/', function(req, res, next) {
+app.get('/', function (req, res) {
     res.render('home');
 });
 
-app.get('/index', function(req, res) {
-    res.render('viewUser/index');
+app.get('/index', function (req, res) {
+    res.render('index');
+    // const show = +req.query.show || 0;
+    // const visible = show !== 0;
+
+    // res.render('index', {
+    //     layout: false,
+    //     data: { visible: visible }
+    // });
 });
 
-app.get('/info', function(req, res) {
-    res.render('viewUser/info');
-});
-
-app.get('/bs4', function(req, res) {
-    // res.sendFile(`${__dirname}/bs4.html`);
-
-    const show = +req.query.show || 0;
-    const visible = show !== 0;
-
-    res.render('bs4', {
-        layout: false,
-        data: { visible: visible }
-    });
-});
 
 // //const indexRouter = require('./routes/index.route');
 // const usersRouter = require('./routes/user.route');
 // const adminRouter = require('./routes/admin.route');
 // const authRouter = require('./routes/auth.route');
 
-// app.use(logger('dev'));
+app.use(logger('dev'));
 // app.use(express.json());
 // app.use(express.urlencoded({ extended: false }));
 // app.use(cookieParser());
@@ -63,6 +55,9 @@ app.get('/bs4', function(req, res) {
 
 //app.use('/', indexRouter);
 app.use('/user', require('./routes/user.route'));
+app.use('/conference', require('./routes/conference.route'));
+app.use('/venue', require('./routes/venue.route'));
+// app.use('/venue', require('./routes/venue.route'));
 // app.use('/user', usersRouter);
 // app.use('/admin', adminRouter);
 // app.use('/auth', authRouter);
@@ -93,7 +88,7 @@ app.use('/signup', function(req, res) {
 
 
 // catch 404 and forward to error handler
-app.use(function(req, res) {
+app.use(function (req, res) {
     res.render('404', {
         layout: false
     })
@@ -101,7 +96,7 @@ app.use(function(req, res) {
 
 // error handler
 // default error handler
-app.use(function(err, req, res, next) {
+app.use(function (err, req, res, next) {
     console.error(err.stack)
     res.render('500', {
         layout: false
