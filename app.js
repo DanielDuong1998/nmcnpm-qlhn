@@ -24,11 +24,11 @@ app.engine('hbs', exphbs({
 }));
 app.set('view engine', 'hbs');
 
-app.get('/', function (req, res) {
+app.get('/', function(req, res) {
     res.render('home');
 });
 
-app.get('/index', function (req, res) {
+app.get('/index', function(req, res) {
     res.render('index');
     // const show = +req.query.show || 0;
     // const visible = show !== 0;
@@ -80,6 +80,11 @@ app.use('/signup', function(req, res) {
         layout: false
     })
 });
+app.use('/forgetpassword', function(req, res) {
+    res.render('vwLogin/forgetpassword', {
+        layout: false
+    })
+});
 
 
 
@@ -88,7 +93,7 @@ app.use('/signup', function(req, res) {
 
 
 // catch 404 and forward to error handler
-app.use(function (req, res) {
+app.use(function(req, res) {
     res.render('404', {
         layout: false
     })
@@ -96,7 +101,7 @@ app.use(function (req, res) {
 
 // error handler
 // default error handler
-app.use(function (err, req, res, next) {
+app.use(function(err, req, res, next) {
     console.error(err.stack)
     res.render('500', {
         layout: false
