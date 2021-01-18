@@ -63,4 +63,29 @@ module.exports = function(app) {
 
     app.use('/auth', require('../routes/auth.route'));
     app.use('/venue', require('../routes/venue.route'));
+
+
+
+    
+    // //const indexRouter = require('./routes/index.route');
+    // const usersRouter = require('./routes/user.route');
+    // const adminRouter = require('./routes/admin.route');
+    const authRouter = require('../routes/auth.route');
+    
+    // app.use(logger('dev'));
+    // app.use(express.json());
+    // app.use(express.urlencoded({ extended: false }));
+    // app.use(cookieParser());
+    // app.use(express.static(path.join(__dirname, 'public')));
+    
+    
+    
+    //app.use('/', indexRouter);
+    app.use('/user', require('../routes/user.route'));
+    app.use('/conference', require('../routes/conference.route'));
+    app.use('/venue', require('../routes/venue.route'));
+    // app.use('/venue', require('./routes/venue.route'));
+    // app.use('/user', usersRouter);
+    // app.use('/admin', adminRouter);
+    app.use('/auth', authRouter);
 }
