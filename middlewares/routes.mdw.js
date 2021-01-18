@@ -13,7 +13,7 @@ module.exports = function(app) {
     });
 
     app.get('/index', function(req, res) {
-        res.render('vwgetr/index');
+        res.render('vwUser/index');
         // const show = +req.query.show || 0;
         // const visible = show !== 0;
     
@@ -49,9 +49,10 @@ module.exports = function(app) {
     app.get('/info', function(req, res) {
         res.render('vwUser/info')
     });
-    app.get('/conference', function(req, res) {
-        res.render('vwConference/conference')
-    });
+    // app.get('/conference', function(req, res) {
+    //     res.render('vwConference/conference')
+    // });
+    // ừa bởi vậy t mới nói của t bị thiếu mấy cái của ông á
 
 
 
@@ -61,7 +62,7 @@ module.exports = function(app) {
     // app.use('/account', require('../routes/front/account.route'));
     // app.use('/products', require('../routes/front/product.route'));
 
-    app.use('/auth', require('../routes/auth.route'));
+    app.use('/auth', require('../routes/auth.route')); 
     app.use('/venue', require('../routes/venue.route'));
 
 
@@ -87,5 +88,7 @@ module.exports = function(app) {
     // app.use('/venue', require('./routes/venue.route'));
     // app.use('/user', usersRouter);
     // app.use('/admin', adminRouter);
-    app.use('/auth', authRouter);
+    // app.use('/auth', authRouter);
+    // cái này để làm gì v?ủa cái này k pahri của ông à
+
 }

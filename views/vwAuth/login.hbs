@@ -35,11 +35,13 @@
 
             <form class="mb-3">
               <div class="form-floating mb-3">
-                <input type="text" name="user_name" class="form-control rounded-pill" id="txtUsername" placeholder="Username , phone or email example:name@example.com">
+                <input type="text" name="user_name" class="form-control rounded-pill" id="txtUsername"
+                  placeholder="Username , phone or email example:name@example.com">
                 <label for="floatingInput">Tên đăng nhập, số điện thoại hoặc email</label>
               </div>
               <div class="form-floating mb-3">
-                <input type="password" name="password" class="form-control rounded-pill" id="txtPassword" placeholder="Password">
+                <input type="password" name="password" class="form-control rounded-pill" id="txtPassword"
+                  placeholder="Password">
                 <label for="floatingPassword">Mật khẩu</label>
               </div>
               <div class="form-check mb-2 d-flex mt-lg-1">
@@ -49,7 +51,6 @@
 
               <button class="btn btn-success rounded-pill w-100"
                 style="height: 55px; background-color: #5AAC44; font-size: larger;" type="button" onclick="login()">
-
                 Log in
               </button>
 
@@ -57,11 +58,11 @@
             </form>
 
             <div class="d-flex justify-content-between">
-              <a class=" " href="/auth/forgetpassword" role="button">
+              <a class=" " href="/forgetpassword" role="button">
                 Quên mật khẩu
               </a>
 
-              <a class="" href="/auth/signup" role="button">
+              <a class="" href="/signup" role="button">
                 Đăng ký tài khoản mới
               </a>
             </div>
@@ -84,11 +85,11 @@
       console.log('login here!!!')
       $(_ => {
         let data = {
-          user_name: $('#floatingInput').val(),
-          password: $('#floatingPassword').val(),
+          user_name: $('#txtUsername').val(),
+          password: $('#txtPassword').val(),
           mode: 1
         };
-
+        //c
         $.ajax({
           url: 'http://localhost:3000/auth',
           method: 'POST',
@@ -97,6 +98,7 @@
           timeout: 10000
         }).done(data => {
           let { status, access_token, refresh_token, id, user_name, name, email } = data;
+          console.log('data: ', data);
 
           if (status === 1) {
             console.log('data: ', data);
@@ -106,8 +108,11 @@
             localStorage.setItem('user_name', user_name);
             localStorage.setItem('name', name);
             localStorage.setItem('email', email);
-
             location.href = './';
+
+
+
+
           }
           else {
             console.log('login failed');

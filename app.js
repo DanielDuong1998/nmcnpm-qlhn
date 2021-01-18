@@ -19,7 +19,7 @@ app.use('/public', express.static('public'));
 require('./middlewares/routes.mdw')(app);
 require('./middlewares/view.mdw')(app);
 require('./middlewares/session.mdw')(app);
-// require('./middlewares/locals.mdw')(app);
+require('./middlewares/locals.mdw')(app);
 require('./middlewares/error.mdw')(app);
 // view engine setup
 
