@@ -24,11 +24,11 @@ app.engine('hbs', exphbs({
 }));
 app.set('view engine', 'hbs');
 
-app.get('/', function(req, res) {
+app.get('/', function (req, res) {
     res.render('home');
 });
 
-app.get('/index', function(req, res) {
+app.get('/index', function (req, res) {
     res.render('index');
     // const show = +req.query.show || 0;
     // const visible = show !== 0;
@@ -43,7 +43,7 @@ app.get('/index', function(req, res) {
 // //const indexRouter = require('./routes/index.route');
 // const usersRouter = require('./routes/user.route');
 // const adminRouter = require('./routes/admin.route');
-// const authRouter = require('./routes/auth.route');
+const authRouter = require('./routes/auth.route');
 
 app.use(logger('dev'));
 // app.use(express.json());
@@ -60,7 +60,7 @@ app.use('/venue', require('./routes/venue.route'));
 // app.use('/venue', require('./routes/venue.route'));
 // app.use('/user', usersRouter);
 // app.use('/admin', adminRouter);
-// app.use('/auth', authRouter);
+app.use('/auth', authRouter);
 
 
 
@@ -70,17 +70,17 @@ app.use('/venue', require('./routes/venue.route'));
 //     res.render('home');
 // });
 
-app.use('/login', function(req, res) {
+app.use('/login', function (req, res) {
     res.render('vwLogin/login', {
         layout: false
     })
 });
-app.use('/signup', function(req, res) {
+app.use('/signup', function (req, res) {
     res.render('vwLogin/signup', {
         layout: false
     })
 });
-app.use('/forgetpassword', function(req, res) {
+app.use('/forgetpassword', function (req, res) {
     res.render('vwLogin/forgetpassword', {
         layout: false
     })
@@ -93,7 +93,7 @@ app.use('/forgetpassword', function(req, res) {
 
 
 // catch 404 and forward to error handler
-app.use(function(req, res) {
+app.use(function (req, res) {
     res.render('404', {
         layout: false
     })
@@ -101,7 +101,7 @@ app.use(function(req, res) {
 
 // error handler
 // default error handler
-app.use(function(err, req, res, next) {
+app.use(function (err, req, res, next) {
     console.error(err.stack)
     res.render('500', {
         layout: false

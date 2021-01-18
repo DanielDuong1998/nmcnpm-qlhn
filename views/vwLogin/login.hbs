@@ -48,8 +48,9 @@
                 <label class="form-check-label" for="exampleCheck1">Check me out</label>
               </div>
 
-              <button type="submit" class="btn btn-success rounded-pill w-100"
-                style="height: 55px; background-color: #5AAC44; font-size: larger;">
+              <button class="btn btn-success rounded-pill w-100"
+                style="height: 55px; background-color: #5AAC44; font-size: larger;" type="button" onclick="login()">
+
                 Log in
               </button>
 
@@ -75,6 +76,48 @@
   <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.min.js"></script>
+  <script src="../public/javascripts/ajax/conferenceAjax.js"></script>
+  <script src="https://code.jquery.com/jquery-3.5.1.min.js"
+    integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
+
+  <script>
+    const login = _ => {
+      console.log('login here!!!')
+      $(_ => {
+        let data = {
+          user_name: $('#floatingInput').val(),
+          password: $('#floatingPassword').val(),
+          mode: 1
+        };
+
+        $.ajax({
+          url: 'http://localhost:3000/auth',
+          method: 'POST',
+          dataType: 'json',
+          data,
+          timeout: 10000
+        }).done(data => {
+          let { status, access_token, refresh_token, id, user_name, name, email } = data;
+
+          if (status === 1) {
+            console.log('data: ', data);
+            localStorage.setItem('x-access-token', access_token);
+            localStorage.setItem('x-refresh-token', refresh_token);
+            localStorage.setItem('id', id);
+            localStorage.setItem('user_name', user_name);
+            localStorage.setItem('name', name);
+            localStorage.setItem('email', email);
+
+            location.href = './';
+          }
+          else {
+            console.log('login failed');
+          }
+
+        });
+      })
+    }
+  </script>
 </body>
 
 </html>
