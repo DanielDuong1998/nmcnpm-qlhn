@@ -15,6 +15,11 @@
 
 <body>
 
+  <div id="navHomePage">
+
+  </div>
+
+
 
   {{> nav}}
   <div style=" margin-top: 85px;">
@@ -37,6 +42,13 @@
     crossorigin="anonymous"></script>
 
   {{{_sections.js}}}
+  <script>
+    let html = document.getElementById("navHomePage");
+    let id = localStorage.getItem("id");
+    let str = id ? `<div>{{> nav}}</div>` : `<div>{{> navguest}}</div>`;
+    html.innerHTML = str;
+  </script>
+
 </body>
 
 </html>
