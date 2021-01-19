@@ -45,7 +45,10 @@ router.post('/', urlencodedParser, async (req, res) => {
     entity.is_active = 1;
     await userModel.add(entity);
 
-    res.send('completed');
+    res.json({
+        status: 1,
+        msg: 'completed create account'
+    });
 
 });
 

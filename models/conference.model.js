@@ -30,6 +30,11 @@ module.exports = {
         console.log('sql: ' + sql);
         return db.load(sql);
 
+    },
+    getConferenceById: id => {
+        let sql = `select * from conference where id = '${id}'`;
+        return db.load(sql);
+
     }
 
 }

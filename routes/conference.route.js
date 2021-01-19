@@ -15,5 +15,14 @@ router.get('/', async (req, res) => {
 
 })
 
+router.get('/id', async (req, res) => {
+    const id = req.query.id;
+    const ret = await conferenceModel.getConferenceById(id);
+    console.log('id: ', id);
+    res.json({
+        data: ret
+    })
+})
+
 
 module.exports = router;
