@@ -93,6 +93,12 @@
 
 
 
+
+
+
+
+
+
 const express = require('express');
 const bodyParser = require('body-parser');
 const jwt = require('jsonwebtoken');
@@ -131,8 +137,9 @@ router.post('/', urlencodedParser, async (req, res) => {
 
 
     let ret = await login(entity, body);
-
+    
     res.json(ret);
+
 
 })
 
