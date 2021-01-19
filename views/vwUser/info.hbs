@@ -167,7 +167,7 @@
           <div class="mb-3 row">
             <button id="ee"
               style="background-color: #5aac44; padding: 10px; ; width: 150px; height: 45px; margin-top: 20px;border-radius: 10px"
-              onclick="hideEdit(this.id)">Xác nhận</button>
+              onclick="changePassword(this.id)">Xác nhận</button>
           </div>
 
         </div>
@@ -275,6 +275,38 @@
           console.log("data update phone: ", data);
         })
       });
+    }
+
+    const changePassword = id => {
+
+      let newPassword1 = document.getElementById('newPassword1');
+      let newPassword2 = document.getElementById('newPassword2');
+      let oldPassword = document.getElementById('oldPassword');
+      if (newPassword1.value === newPassword2.value) {
+        hideEdit(id)
+
+        $(_ => {
+          let data = {
+            id: localStorage.getItem('id'),
+            old_password: oldPassword.value,
+            new_password: newPassword1.value
+          };
+
+          $.ajax({
+            url: 'http://localhost:3000/user/password',
+            method: 'PUT',
+            dataType: 'json',
+            data,
+            timeout: 10000
+          }).done(dataO => {
+            if (dataO.status == 1) {
+              console.log("completed change password")
+            }
+          })
+
+
+        });
+      }
     }
 
   </script>

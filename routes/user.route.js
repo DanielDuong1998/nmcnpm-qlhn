@@ -57,7 +57,8 @@ router.get('/password', urlencodedParser, async (req, res) => {
     res.render('forgetPassword', { title: 'Quên Mật Khẩu' });
 });
 
-router.put('/password', middleware.verifyAccessToken, async (req, res) => {
+router.put('/password', async (req, res) => {
+    console.log("vao đay nè: ", req.body)
     const { body } = req;
 
     if (body.role === 0) return res.json({ status: -1 });
