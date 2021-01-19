@@ -78,6 +78,44 @@ router.put('/password', middleware.verifyAccessToken, async (req, res) => {
     })
 });
 
+router.post('/update-name', async (req, res) => {
+    let { id, name } = req.body;
+
+    console.log('data: ne ahihihi')
+
+    if (name === undefined || name === '') return res.json({ status: -1, msg: 'failed to save name' })
+    await userModel.updateName(id, name);
+
+    res.json({
+        status: 1,
+        msg: 'update name completed'
+    })
+})
+
+router.post('/update-email', async (req, res) => {
+    let { id, email } = req.body;
+
+    if (email === undefined || email === '') return res.json({ status: -1, msg: 'failed to save email' })
+    await userModel.updateEmail(id, email);
+
+    res.json({
+        status: 1,
+        msg: 'update email completed'
+    })
+})
+
+router.post('/update-phone', async (req, res) => {
+    let { id, phone } = req.body;
+
+    if (phone === undefined || phone === '') return res.json({ status: -1, msg: 'failed to save phone' })
+    await userModel.updatePhone(id, phone);
+
+    res.json({
+        status: 1,
+        msg: 'update phone completed'
+    })
+})
+
 const checkUsername = async username => {
     const id = await userModel.getUsername(username);
     return id;
