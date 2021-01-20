@@ -1,3 +1,5 @@
+
+
 const bcrypt = require('bcryptjs');
 
 const db = require('../utils/db');
@@ -19,7 +21,6 @@ module.exports = {
         if (bcrypt.compareSync(entity.password, passwordHash)) {
             return row[0];
         }
-
         return null;
     },
 
@@ -45,3 +46,4 @@ module.exports = {
         return null;
     }
 }
+

@@ -1,11 +1,10 @@
 const createError = require('http-errors');
 const express = require('express');
-const exphbs = require('express-handlebars');
+
 require('express-async-errors');
 const path = require('path');
 const cookieParser = require('cookie-parser');
 const logger = require('morgan');
-
 
 const app = express();
 
@@ -75,6 +74,12 @@ app.use('/admin', require('./routes/admin.route'));
 
 
 
+require('./middlewares/routes.mdw')(app);
+require('./middlewares/view.mdw')(app);
+require('./middlewares/session.mdw')(app);
+// require('./middlewares/locals.mdw')(app);
+require('./middlewares/error.mdw')(app);
+// view engine setup
 
 
 
@@ -82,24 +87,12 @@ app.use('/admin', require('./routes/admin.route'));
 
 
 
-// catch 404 and forward to error handler
-app.use(function(req, res) {
-    res.render('404', {
-        layout: false
-    })
-});
 
-// error handler
-// default error handler
-app.use(function(err, req, res, next) {
-    console.error(err.stack)
-    res.render('500', {
-        layout: false
-    })
-});
 
 module.exports = app;
 // const PORT = 3000;
 // app.listen(PORT, _ => {
+//     console.log(`Example app listening at http://localhost:${PORT}`);
+// });.listen(PORT, _ => {
 //     console.log(`Example app listening at http://localhost:${PORT}`);
 // });

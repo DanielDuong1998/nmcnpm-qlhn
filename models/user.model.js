@@ -4,7 +4,7 @@ const momentTz = require('moment-timezone');
 const db = require('../utils/db');
 
 module.exports = {
-    all: db.load('SELECT * FROM user'),
+    all: _ => db.load('SELECT * FROM user'),
 
     add: entity => {
         const hash = bcrypt.hashSync(entity.password, 8);
@@ -51,6 +51,21 @@ module.exports = {
         const sql = `select password from user where id = '${id}'`;
         const row = await db.load(sql);
         return row[0];
+    },
+
+    updateName: (id, name) => {
+        const sql = `update user set name ='${name}' where id = '${id}'`;
+        return db.load(sql);
+    },
+
+    updateEmail: (id, email) => {
+        const sql = `update user set email ='${email}' where id = '${id}'`;
+        return db.load(sql);
+    },
+
+    updatePhone: (id, phone) => {
+        const sql = `update user set phone_number ='${phone}' where id = '${id}'`;
+        return db.load(sql);
     }
 
 
