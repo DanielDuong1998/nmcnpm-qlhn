@@ -20,19 +20,8 @@
 
 
     <form id="frmLogout" method="POST" action="/user/logout"></form>
-    <ul class="col-sm-4 d-flex justify-content-end navbar-nav mb-2 mb-lg-0">
-      {{#if this.empty }}
-      <li class="nav-item active">
-        <a class="btn btn-outline-light me-2" role="button" aria-expanded="false" href="/login">
-          Đăng nhập
-        </a>
-      </li>
-      <li class="nav-item active">
-        <a class="btn btn-light" href="/signup">
-          Đăng kí
-        </a>
-      </li>
-      {{else}}
+    <ul class="col-sm-4 d-flex justify-content-end navbar-nav mb-2 mb-lg-0" id="ulNav">
+      {{#if isAuth}}
       <li class="nav-item dropdown">
         <a class="nav-link dropdown-toggle text-light" href="#" id="navbarDropdown" role="button"
           data-bs-toggle="dropdown" aria-expanded="false">
@@ -80,6 +69,81 @@
 
       {{/if}}
     </ul>
+
+    <script>
+      let html = document.getElementById('ulNav');
+      let isActive = localStorage.getItem('id');
+      let str = '';
+      if (isActive) {
+        str = `<li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle text-light" href="#" id="navbarDropdown" role="button"
+          data-bs-toggle="dropdown" aria-expanded="false">
+          <i class="fa fa-user-circle-o" aria-hidden="true"></i>
+          <b>${localStorage.getItem('name')}</b>
+        </a>
+        <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <li>
+            <a class="dropdown-item" href="/user/info">
+              <i class="fa fa-user" aria-hidden="true"></i>
+              Xem và chỉnh sửa thông tin cá nhân
+            </a>
+          </li>
+          <li>
+            <a class="dropdown-item" href="/user/info">
+              <i class="fa fa-book" aria-hidden="true"></i>
+              Xem danh sách hội nghị đã đăng kí
+            </a>
+          </li>
+          <li>
+            <a class="dropdown-item" href="/index">
+              <i class="fa fa-lock" aria-hidden="true"></i>
+              Cài đặt
+            </a>
+          </li>
+          <li>
+            <hr class="dropdown-divider">
+          </li>
+          <li>
+            <button onclick="logOut()" style="border-style: none; background-color: white;">
+              <i class="fa fa-sign-out" aria-hidden="true"></i>
+              Đăng xuất
+            </button>
+          </li>
+        </ul>
+      </li>
+      <li class="nav-item active">
+        <a class="nav-link" href="#">
+          <i class="fa fa-bell" aria-hidden="true"></i>
+          Thông báo
+        </a>
+      </li>`;
+      }
+      else {
+        str = `<li class="nav-item active">
+        <a class="btn btn-outline-light me-2" role="button" aria-expanded="false" href="/login">
+          Đăng nhập
+        </a>
+      </li>
+      <li class="nav-item active">
+        <a class="btn btn-light" href="/signup">
+          Đăng kí
+        </a>
+      </li>`;
+      }
+
+      html.innerHTML = str;
+
+      const logOut = _ => {
+        console.log('log out')
+        localStorage.clear();
+        location.reload();
+      }
+
+      //<a class="dropdown-item" href="javascript: $('#frmLogout').submit();">
+              //<i class="fa fa-sign-out" aria-hidden="true"></i>
+              //Đăng xuất
+            //</a>
+    </script>
 
   </div>
 

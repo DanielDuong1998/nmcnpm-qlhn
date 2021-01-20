@@ -45,7 +45,10 @@ router.post('/', urlencodedParser, async (req, res) => {
     entity.is_active = 1;
     await userModel.add(entity);
 
-    res.send('completed');
+    res.json({
+        status: 1,
+        msg: 'completed create account'
+    });
 
 });
 
@@ -54,7 +57,8 @@ router.get('/password', urlencodedParser, async (req, res) => {
     res.render('forgetPassword', { title: 'Quên Mật Khẩu' });
 });
 
-router.put('/password', middleware.verifyAccessToken, async (req, res) => {
+router.put('/password', async (req, res) => {
+    console.log("vao đay nè: ", req.body)
     const { body } = req;
 
     if (body.role === 0) return res.json({ status: -1 });
@@ -74,6 +78,44 @@ router.put('/password', middleware.verifyAccessToken, async (req, res) => {
         status: 1
     })
 });
+
+router.post('/update-name', async (req, res) => {
+    let { id, name } = req.body;
+
+    console.log('data: ne ahihihi')
+
+    if (name === undefined || name === '') return res.json({ status: -1, msg: 'failed to save name' })
+    await userModel.updateName(id, name);
+
+    res.json({
+        status: 1,
+        msg: 'update name completed'
+    })
+})
+
+router.post('/update-email', async (req, res) => {
+    let { id, email } = req.body;
+
+    if (email === undefined || email === '') return res.json({ status: -1, msg: 'failed to save email' })
+    await userModel.updateEmail(id, email);
+
+    res.json({
+        status: 1,
+        msg: 'update email completed'
+    })
+})
+
+router.post('/update-phone', async (req, res) => {
+    let { id, phone } = req.body;
+
+    if (phone === undefined || phone === '') return res.json({ status: -1, msg: 'failed to save phone' })
+    await userModel.updatePhone(id, phone);
+
+    res.json({
+        status: 1,
+        msg: 'update phone completed'
+    })
+})
 
 const checkUsername = async username => {
     const id = await userModel.getUsername(username);

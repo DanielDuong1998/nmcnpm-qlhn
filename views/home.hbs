@@ -218,6 +218,14 @@
 
   <script>
     console.log('get here')
+
+    const viewInfoConference = id => {
+      $(_ => {
+        let idO = localStorage.getItem(`con${id}`);
+        localStorage.setItem('conferenceCurrent', idO);
+      })
+    }
+
     $.ajax({
       url: 'http://localhost:3000/conference',
       method: 'GET',
@@ -226,11 +234,12 @@
         request.setRequestHeader('x-access-token', localStorage.getItem('x-access-token'));
       }
     }).done(data => {
-      console.log('data: ', data)
       let html = document.getElementById("mainBody");
-      console.log('data size: ', data.data.length)
       let str = '';
-      data.data.forEach(e => {
+      console.log('data: ', data.data);
+
+      data.data.forEach((e, i) => {
+        localStorage.setItem(`con${i}`, e.id);
 
         str += `
         <div class="col-md-4">
@@ -244,8 +253,8 @@
                 <p class="card-text">${e.name}.</p>
                 <div class="d-flex justify-content-between align-items-center">
                   <div class="btn-group">
-                      <a href="#" class="btn btn-outline-primary my-2">Xem chi tiết</a>
-                      <a href="#" class="btn btn-outline-success my-2">Đăng kí tham gia</a> 
+                    <button type="button" class="btn btn-sm btn-outline-secondary" onclick="viewInfoConference(${i})">View</button>
+                    <button type="button" class="btn btn-sm btn-outline-secondary">Edit</button>
                   </div>
                   <small class="text-muted">9 mins</small>
                 </div>
