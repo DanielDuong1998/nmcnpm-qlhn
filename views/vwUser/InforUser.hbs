@@ -1,0 +1,171 @@
+<section class="container">
+
+    <h4>Thông tin tài khoản</h4>
+    <div style="margin-bottom: 50px">
+
+        <div>
+            <div style="flex-direction: row; display: flex;  align-items: center; ">
+                <text
+                    style="background-color: #c4c4c4; padding: 10px; ; width: 256px; height: 45px; margin-top: 20px;border-radius: 10px">Họ
+                    và tên</text>
+                <div id="a_edit" style="flex-direction: row; flex; 1; display: none">
+                    <input
+                        style="margin-right:20px; padding: 10px;width: 350px; height: 45px; margin-top: 20px; border-radius: 10px;" />
+                    <button id="aa"
+                        style="background-color: #f25800;  margin-right: 16px; padding: 10px; ; width: 150px; height: 45px; margin-top: 20px;border-radius: 10px"
+                        onclick="hideEdit(this.id)">Lưu thay đổi</button>
+                    <button id="aaa"
+                        style="background-color: #7b7b7d;padding: 10px; ; width: 150px; height: 45px; margin-top: 20px;border-radius: 10px"
+                        onclick="hideEdit(this.id)">Hủy</button>
+                </div>
+
+                <div id="a_info" style="flex-direction: row; flex; 1; display: flex">
+                    <text
+                        style=" background: #AFBFFA;margin-right:20px; padding: 10px; ; width: 350px; height: 45px; margin-top: 20px;border-radius: 10px ">Nguyễn
+                        Văn Tuấn</text>
+                    <button id="a"
+                        style="background-color: #5aac44; padding: 10px; ; width: 150px; height: 45px; margin-top: 20px;border-radius: 10px"
+                        onclick="showEdit(this.id)">Chỉnh sửa</button>
+                </div>
+
+            </div>
+
+            <div style="flex-direction: row; display: flex; flex: 1, align-items: center">
+                <text
+                    style="background-color: #c4c4c4; padding: 10px; ; width: 256px; height: 45px; margin-top: 20px;border-radius: 10px">Địa
+                    chỉ Email</text>
+                <div id="b_edit" style="flex-direction: row; flex; 1; display: none">
+                    <input
+                        style="margin-right:20px; padding: 10px; ; width: 350px; height: 45px; margin-top: 20px;border-radius: 10px;" />
+                    <button id="bb"
+                        style="background-color: #f25800;  margin-right: 16px; padding: 10px; ; width: 150px; height: 45px; margin-top: 20px;border-radius: 10px"
+                        onclick="hideEdit(this.id)">Lưu thay đổi</button>
+                    <button id="bbb"
+                        style="background-color: #7b7b7d; padding: 10px; ; width: 150px; height: 45px; margin-top: 20px;border-radius: 10px"
+                        onclick="hideEdit(this.id)">Hủy</button>
+                </div>
+                <div id="b_info" style="flex-direction: row; flex; 1; display: flex">
+                    <text
+                        style=" background: #AFBFFA; margin-right:20px; padding: 10px; ; width: 350px; height: 45px; margin-top: 20px;border-radius: 10px;">nvtuan@gmail.com</text>
+                    <button id="b"
+                        style="background-color: #5aac44; padding: 10px; ; width: 150px; height: 45px; margin-top: 20px;border-radius: 10px"
+                        onclick="showEdit(this.id)">Chỉnh sửa</button>
+                </div>
+            </div>
+
+            <div style="flex-direction: row; display: flex; flex: 1, align-items: center">
+                <text
+                    style="background-color: #c4c4c4; padding: 10px; ; width: 256px; height: 45px; margin-top: 20px;border-radius: 10px;">Số
+                    điện thoại</text>
+                <div id="c_edit" style="flex-direction: row; flex; 1; display: none">
+                    <input
+                        style="margin-right:20px; padding: 10px; ; width: 350px; height: 45px; margin-top: 20px;border-radius: 10px;" />
+                    <button id="cc"
+                        style="background-color: #f25800;margin-right: 16px; padding: 10px; ; width: 150px; height: 45px; margin-top: 20px;border-radius: 10px"
+                        onclick="hideEdit(this.id)">Lưu thay đổi</button>
+                    <button id="ccc"
+                        style="background-color: #7b7b7d; padding: 10px; ; width: 150px; height: 45px; margin-top: 20px;border-radius: 10px"
+                        onclick="hideEdit(this.id)">Hủy</button>
+                </div>
+                <div id="c_info" style="flex-direction: row; flex; 1; display: flex">
+                    <text
+                        style=" background: #AFBFFA; margin-right:20px; padding: 10px; ; width: 350px; height: 45px; margin-top: 20px;border-radius: 10px;">0383993000</text>
+                    <button id="c"
+                        style="background-color: #5aac44; padding: 10px; ; width: 150px; height: 45px; margin-top: 20px;border-radius: 10px"
+                        onclick="showEdit(this.id)">Chỉnh sửa</button>
+                </div>
+            </div>
+
+            <div style="flex-direction: row; display: flex; flex: 1, align-items: center">
+                <text
+                    style="background-color: #c4c4c4;padding: 10px; ; width: 256px; height: 45px; margin-top: 20px;border-radius: 10px;">Địa
+                    chỉ</text>
+                <div id="d_edit" style="flex-direction: row; flex; 1; display: none">
+                    <input
+                        style="margin-right:20px; padding: 10px; ; width: 350px; height: 45px; margin-top: 20px;border-radius: 10px;" />
+                    <button id="dd"
+                        style="background-color: #f25800; margin-right: 16px;padding: 10px; ; width: 150px; height: 45px; margin-top: 20px;border-radius: 10px "
+                        onclick="hideEdit(this.id)">Lưu thay đổi</button>
+                    <button id="ddd"
+                        style="background-color: #7b7b7d; padding: 10px; ; width: 150px; height: 45px; margin-top: 20px;border-radius: 10px"
+                        onclick="hideEdit(this.id)">Hủy</button>
+                </div>
+                <div id="d_info" style="flex-direction: row; flex; 1; display: flex">
+                    <text
+                        style=" background: #AFBFFA; margin-right:20px; padding: 10px; ; width: 350px; height: 45px; margin-top: 20px;border-radius: 10px;">Thành
+                        phố Hồ Chí Minh</text>
+                    <button id="d"
+                        style="background-color: #5aac44; padding: 10px; ; width: 150px; height: 45px; margin-top: 20px;border-radius: 10px"
+                        onclick="showEdit(this.id)">Chỉnh sửa</button>
+                </div>
+            </div>
+
+            <div style=" display: flex; align-items: center; ">
+                <div id="e_edit" style=" display: none;flex-direction: column;">
+                    <h5 style="margin-top: 20px">Thay đổi mật khẩu</h5>
+                    <hr style="width:100%; margin-top: 20px;">
+                    <div class=" row">
+                        <label for="staticEmail" class="col col-form-label"
+                            style="padding: 10px; ; width: 256px; height: 45px; margin-top: 20px;">Nhập mật khẩu
+                            cũ</label>
+                        <div class="col">
+                            <input type="password" class="form-control" id="oldPassword"
+                                style="padding: 10px; ; width: 256px; height: 45px; margin-top: 20px;">
+                        </div>
+                    </div>
+
+                    <div class=" row">
+                        <label for="inputPassword" class="col col-form-label"
+                            style="padding: 10px; ; width: 256px; height: 45px; margin-top: 20px;">Nhập mật khẩu
+                            mới</label>
+                        <div class="col ">
+                            <input type="password" class="form-control" id="newPassword1"
+                                style="padding: 10px; ; width: 256px; height: 45px; margin-top: 20px;">
+                        </div>
+                    </div>
+                    <div class=" row">
+                        <label for="inputPassword" class="col  col-form-label"
+                            style="padding: 10px; ; width: 256px; height: 45px; margin-top: 20px;">Xác nhận mật
+                            khẩu</label>
+                        <div class="col ">
+                            <input type="password" class="form-control" id="newPassword2"
+                                style="padding: 10px; ; width: 256px; height: 45px; margin-top: 20px;">
+                        </div>
+                    </div>
+                    <div class="mb-3 row">
+                        <button id="ee"
+                            style="background-color: #5aac44; padding: 10px; ; width: 150px; height: 45px; margin-top: 20px;border-radius: 10px"
+                            onclick="hideEdit(this.id)">Xác nhận</button>
+                    </div>
+
+                </div>
+                <div id="e_info" style="flex-direction: column; flex; 1; display: flex">
+                    <button id="e"
+                        style="background-color: #5aac44; padding: 10px; ; width: 200px; height: 45px; margin-top: 20px;border-radius: 10px"
+                        onclick="showEdit(this.id)">Thay đổi mật khẩu</button>
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+
+    <script>
+        function showEdit(id) {
+            var edit_id = id + "_edit"
+            var info_id = id + "_info"
+            var v_edit = document.getElementById(edit_id)
+            v_edit.style.display = "flex"
+            var v_info = document.getElementById(info_id)
+            v_info.style.display = "none"
+        }
+        function hideEdit(id) {
+            var edit_id = id.substr(0, 1) + "_edit"
+            var info_id = id.substr(0, 1) + "_info"
+            var v_edit = document.getElementById(edit_id)
+            var v_info = document.getElementById(info_id)
+            v_edit.style.display = "none"
+            v_info.style.display = "flex"
+        }
+    </script>
+</section>

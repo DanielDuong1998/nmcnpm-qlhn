@@ -1,0 +1,105 @@
+<div class="row">
+    <div class="col-md-3">
+        {{> navmenu}}
+    </div>
+
+    <div class="col">
+        <div class="container" style="margin-bottom: 20px">
+            <form class="needs-validation" novalidate>
+                <h5 style="text-align: center">Thông tin hội nghị</h5>
+                <div class="row" style="margin-top: 20px">
+                    <label for="validationCustom01" class="col-md-2 form-label">Thông tin hội nghị</label>
+                    <input type="text" class="col form-control" id="nameConfer" required>
+                    <div class="invalid-feedback">
+                        Không được bỏ trống!
+                    </div>
+                </div>
+
+                <div class="row" style="margin-top: 20px">
+                    <label for="validationCustom01" class="col-md-2 form-label">Mô tả ngắn gọn</label>
+                    <input type="text" class="col form-control" id="decriptSort" required>
+                    <div class="invalid-feedback">
+                        Không được bỏ trống!
+                    </div>
+                </div>
+
+                <div class="row" style="margin-top: 20px">
+                    <label for="validationCustom01" class="col-md-2 form-label">Mô tả chi tiết</label>
+                    <input type="text" class="col form-control" id="decriptLong" required>
+                    <div class="invalid-feedback">
+                        Không được bỏ trống!
+                    </div>
+                </div>
+
+                <div class="row" style="margin-top: 20px">
+                    <label for="validationCustom01" class="col-md-2 form-label">Thời gian BĐ</label>
+                    <input type="date" class="col form-control" id="dateBĐ" required>
+                    <div class="invalid-feedback">
+                        Không được bỏ trống!
+                    </div>
+                </div>
+
+                <div class="row" style="margin-top: 20px">
+                    <label for="validationCustom01" class="col-md-2 form-label">Thời gian KT</label>
+                    <input type="date" class="col form-control" id="dateKT" required>
+                    <div class="invalid-feedback">
+                        Không được bỏ trống!
+                    </div>
+                </div>
+
+                <div class="row" style="margin-top: 20px">
+                    <label for="validationCustom01" class="col-md-2 form-label">Địa điểm</label>
+                    <input type="text" class="col form-control" id="location" required>
+                    <div class="invalid-feedback">
+                        Không được bỏ trống!
+                    </div>
+                </div>
+
+                <div class="row" style="margin-top: 20px">
+                    <label for="validationCustom01" class="col-md-2 form-label">Số lượng giới hạn</label>
+                    <input type="text" class="col form-control" id="sl" required>
+                    <div class="invalid-feedback">
+                        Không được bỏ trống!
+                    </div>
+                </div>
+
+                <div class="row" style="margin-top: 20px">
+                    <label for="validationCustom01" class="col-md-2 form-label">Hình ảnh</label>
+                    <input type="file" class="col form-control" id="picture" required>
+                    <div class="invalid-feedback">
+                        Không được bỏ trống!
+                    </div>
+                </div>
+
+
+
+                <div class="col" style="margin-top: 20px">
+                    <center>
+                        <button class="btn btn-primary" style="background-color: #ACD25A;">Thêm hội nghị</button>
+                    </center>
+                </div>
+            </form>
+        </div>
+    </div>
+    <script>
+        (function () {
+            'use strict'
+
+            // Fetch all the forms we want to apply custom Bootstrap validation styles to
+            var forms = document.querySelectorAll('.needs-validation')
+
+            // Loop over them and prevent submission
+            Array.prototype.slice.call(forms)
+                .forEach(function (form) {
+                    form.addEventListener('submit', function (event) {
+                        if (!form.checkValidity()) {
+                            event.preventDefault()
+                            event.stopPropagation()
+                        }
+
+                        form.classList.add('was-validated')
+                    }, false)
+                })
+        })()
+    </script>
+</div>
