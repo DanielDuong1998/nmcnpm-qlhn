@@ -49,6 +49,9 @@ router.get('/manageconference', function(req, res) {
 router.get('/creatconference', function(req, res) {
     res.render('vwAdmin/creatconference');
 });
+router.get('/editconference', function(req, res) {
+    res.render('vwAdmin/editconference');
+});
 
 
 

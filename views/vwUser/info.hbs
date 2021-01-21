@@ -38,6 +38,136 @@
 
 
 </script>
+
+<script>
+  let txtName = document.getElementById('txtName');
+  let txtEmail = document.getElementById('txtEmail');
+  let txtPhone = document.getElementById('txtPhone');
+  let inputName = document.getElementById('inputName');
+  let inputEmail = document.getElementById('inputEmail');
+  let inputPhone = document.getElementById('inputPhone');
+
+  txtName.textContent = localStorage.getItem("name");
+  txtEmail.textContent = localStorage.getItem('email');
+  txtPhone.textContent = localStorage.getItem('phone');
+  inputName.value = localStorage.getItem("name");
+  inputEmail.value = localStorage.getItem('email');
+  inputPhone.value = localStorage.getItem('phone');
+
+  const saveChangeName = id => {
+    console.log('save name: ');
+    hideEdit(id);
+    $(_ => {
+      let data = {
+        id: localStorage.getItem('id'),
+        name: inputName.value
+      }
+
+      $.ajax({
+        url: 'http://localhost:3000/user/update-name',
+        method: 'POST',
+        dataType: 'json',
+        data,
+        timeout: 10000
+      }).done(dataO => {
+        if (dataO.status == 1) {
+          localStorage.setItem('name', data.name);
+          inputName.value = data.name;
+          txtName.textContent = data.name;
+          location.reload();
+        }
+        console.log("data update name: ", data);
+      })
+    });
+
+  }
+
+  const saveChangeEmail = id => {
+    hideEdit(id);
+
+    $(_ => {
+      let data = {
+        id: localStorage.getItem('id'),
+        email: inputEmail.value
+      }
+
+      $.ajax({
+        url: 'http://localhost:3000/user/update-email',
+        method: 'POST',
+        dataType: 'json',
+        data,
+        timeout: 10000
+      }).done(dataO => {
+        if (dataO.status == 1) {
+          localStorage.setItem('name', data.email);
+          inputEmail.value = data.email;
+          txtEmail.textContent = data.email;
+        }
+        console.log("data update email: ", data);
+      })
+    });
+  }
+
+  const saveChangePhone = id => {
+    hideEdit(id);
+
+    $(_ => {
+      let data = {
+        id: localStorage.getItem('id'),
+        phone: inputPhone.value
+      }
+
+      $.ajax({
+        url: 'http://localhost:3000/user/update-phone',
+        method: 'POST',
+        dataType: 'json',
+        data,
+        timeout: 10000
+      }).done(dataO => {
+        if (dataO.status == 1) {
+          localStorage.setItem('phone', data.phone);
+          inputPhone.value = data.phone;
+          txtPhone.textContent = data.phone;
+        }
+        console.log("data update phone: ", data);
+      })
+    });
+  }
+
+  const changePassword = id => {
+
+    let newPassword1 = document.getElementById('newPassword1');
+    let newPassword2 = document.getElementById('newPassword2');
+    let oldPassword = document.getElementById('oldPassword');
+    if (newPassword1.value === newPassword2.value) {
+      hideEdit(id)
+
+      $(_ => {
+        let data = {
+          id: localStorage.getItem('id'),
+          old_password: oldPassword.value,
+          new_password: newPassword1.value
+        };
+
+        $.ajax({
+          url: 'http://localhost:3000/user/password',
+          method: 'PUT',
+          dataType: 'json',
+          data,
+          timeout: 10000
+        }).done(dataO => {
+          if (dataO.status == 1) {
+            console.log("completed change password")
+          }
+        })
+
+
+      });
+    }
+  }
+
+</script>
+
 {{/section}}
 
 
@@ -182,134 +312,6 @@
     </div>
   </div>
 
-  <script>
-    let txtName = document.getElementById('txtName');
-    let txtEmail = document.getElementById('txtEmail');
-    let txtPhone = document.getElementById('txtPhone');
-    let inputName = document.getElementById('inputName');
-    let inputEmail = document.getElementById('inputEmail');
-    let inputPhone = document.getElementById('inputPhone');
-
-    txtName.textContent = localStorage.getItem("name");
-    txtEmail.textContent = localStorage.getItem('email');
-    txtPhone.textContent = localStorage.getItem('phone');
-    inputName.value = localStorage.getItem("name");
-    inputEmail.value = localStorage.getItem('email');
-    inputPhone.value = localStorage.getItem('phone');
-
-    const saveChangeName = id => {
-      console.log('save name: ');
-      hideEdit(id);
-      $(_ => {
-        let data = {
-          id: localStorage.getItem('id'),
-          name: inputName.value
-        }
-
-        $.ajax({
-          url: 'http://localhost:3000/user/update-name',
-          method: 'POST',
-          dataType: 'json',
-          data,
-          timeout: 10000
-        }).done(dataO => {
-          if (dataO.status == 1) {
-            localStorage.setItem('name', data.name);
-            inputName.value = data.name;
-            txtName.textContent = data.name;
-            location.reload();
-          }
-          console.log("data update name: ", data);
-        })
-      });
-
-    }
-
-    const saveChangeEmail = id => {
-      hideEdit(id);
-
-      $(_ => {
-        let data = {
-          id: localStorage.getItem('id'),
-          email: inputEmail.value
-        }
-
-        $.ajax({
-          url: 'http://localhost:3000/user/update-email',
-          method: 'POST',
-          dataType: 'json',
-          data,
-          timeout: 10000
-        }).done(dataO => {
-          if (dataO.status == 1) {
-            localStorage.setItem('name', data.email);
-            inputEmail.value = data.email;
-            txtEmail.textContent = data.email;
-          }
-          console.log("data update email: ", data);
-        })
-      });
-    }
-
-    const saveChangePhone = id => {
-      hideEdit(id);
-
-      $(_ => {
-        let data = {
-          id: localStorage.getItem('id'),
-          phone: inputPhone.value
-        }
-
-        $.ajax({
-          url: 'http://localhost:3000/user/update-phone',
-          method: 'POST',
-          dataType: 'json',
-          data,
-          timeout: 10000
-        }).done(dataO => {
-          if (dataO.status == 1) {
-            localStorage.setItem('phone', data.phone);
-            inputPhone.value = data.phone;
-            txtPhone.textContent = data.phone;
-          }
-          console.log("data update phone: ", data);
-        })
-      });
-    }
-
-    const changePassword = id => {
-
-      let newPassword1 = document.getElementById('newPassword1');
-      let newPassword2 = document.getElementById('newPassword2');
-      let oldPassword = document.getElementById('oldPassword');
-      if (newPassword1.value === newPassword2.value) {
-        hideEdit(id)
-
-        $(_ => {
-          let data = {
-            id: localStorage.getItem('id'),
-            old_password: oldPassword.value,
-            new_password: newPassword1.value
-          };
-
-          $.ajax({
-            url: 'http://localhost:3000/user/password',
-            method: 'PUT',
-            dataType: 'json',
-            data,
-            timeout: 10000
-          }).done(dataO => {
-            if (dataO.status == 1) {
-              console.log("completed change password")
-            }
-          })
-
-
-        });
-      }
-    }
-
-  </script>
 
 
   {{!-- <button type="button" class="btn btn-primary btn-sm">Chỉnh sửa</button> --}}
