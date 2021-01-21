@@ -15,13 +15,13 @@ app.use(express.urlencoded({
 app.use('/public', express.static('public'));
 
 // view engine setup
-app.engine('hbs', exphbs({
-    defaultLayout: 'main.hbs',
-    extname: '.hbs',
-    layoutsDir: 'views/layouts',
-    partialsDir: 'views/partials',
-}));
-app.set('view engine', 'hbs');
+// app.engine('hbs', exphbs({
+//     defaultLayout: 'main.hbs',
+//     extname: '.hbs',
+//     layoutsDir: 'views/layouts',
+//     partialsDir: 'views/partials',
+// }));
+// app.set('view engine', 'hbs');
 
 app.get('/', function(req, res, next) {
     res.render('home');
