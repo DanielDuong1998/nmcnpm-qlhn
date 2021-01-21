@@ -70,7 +70,9 @@ router.get('/singleuser', function(req, res) {
     res.render('vwAdmin/singleuser');
 });
 
-
+router.get('/userconference', function(req, res) {
+    res.render('vwAdmin/userconference');
+});
 
 // view chấp nhận yêu cầu của user 
 router.get('/acceptuser', function(req, res) {

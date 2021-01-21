@@ -22,9 +22,9 @@
         </form>
 
         {{!--Kết quả trả về nếu có (bình thường sẽ ẩn nó, nếu có kết quả thì hiện lên)--}}
-        <table class="table table-striped">
+        <table class="table table-striped ">
             <h5 style="margin-top: 20px"> Kết quả trả về thông tin User:</h4>
-                <thead>
+                <thead class="text-light bg-info">
                     <tr>
                         <th scope="col">#</th>
                         <th scope="col">Họ và tên</th>
@@ -40,7 +40,7 @@
                         <td>Mark</td>
                         <td>Otto</td>
                         <td>@mdo</td>
-                        <td><a href="#">xem chi tiết</a></td>
+                        <td><a href="/admin/userconference">xem chi tiết</a></td>
                         <td>Hoạt động</td>
                     </tr>
                    
@@ -48,37 +48,35 @@
         </table>
         {{!-- --}}
         <div class="row">
-            <div class="col-md-2 mr-auto card text-dark light mb-3" style="max-width: 18rem;">
+            <div class="col-md  card text-white bg-dark mb-3" style="max-width: 18rem; margin-right: 25px">
                 
                 <div class="card-header">48 user</div>
                 <div class="card-body">
-                    <h5 class="card-title">Light card title</h5>
-                    <p class="card-text">Tổng số lượng user</p>
+                    <h5 class="card-title">Tổng số người dùng</h5>
+                    <p class="card-text">All user</p>
                 </div>
             </div>
 
-            <div class="col mr-auto card text-white bg-success mb-3" style="max-width: 18rem;">
-                <div class="card-header">Header</div>
+            <div class="col-md  card text-white bg-success mb-3" style="max-width: 18rem; margin-right: 25px">
+                <div class="card-header">40 user</div>
                 <div class="card-body">
-                    <h5 class="card-title">Success card title</h5>
-                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the
-                        card's content.</p>
+                    <h5 class="card-title">Số người dùng đang hoạt động</h5>
+                    <p class="card-text">Number of active users</p>
                 </div>
             </div>
 
-            <div class="col mr-auto card text-white bg-danger mb-3" style="max-width: 18rem;">
-                <div class="card-header">Header</div>
+            <div class="col-md  card text-white bg-danger mb-3" style="max-width: 18rem;margin-right: 25px">
+                <div class="card-header">8 user</div>
                 <div class="card-body">
-                    <h5 class="card-title">Danger card title</h5>
-                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the
-                        card's content.</p>
+                    <h5 class="card-title">Số user bị chặn</h5>
+                    <p class="card-text">Blocked number of users </p>
                 </div>
             </div>
         </div>
         {{!-- Danh sách toàn bộ User xuất hiện ngay từ đầu --}}
         <table class="table table-striped">
             <h5 style="margin-top: 20px"> Danh sách thông tin User:</h4>
-                <thead>
+                <thead class="text-light bg-secondary ">
                     <tr>
                         <th scope="col">#</th>
                         <th scope="col">Họ và tên</th>
@@ -94,7 +92,7 @@
                         <td>Mark</td>
                         <td>Otto</td>
                         <td>@mdo</td>
-                        <td><a href="#">xem chi tiết</a></td>
+                        <td><a href="/admin/userconference">xem chi tiết</a></td>
                         <td>Hoạt động</td>
                     </tr>
                     <tr>
@@ -102,14 +100,14 @@
                         <td>Jacob</td>
                         <td>Thornton</td>
                         <td>@fat</td>
-                        <td><a href="#">xem chi tiết</a></td>
+                        <td><a href="/admin/userconference">xem chi tiết</a></td>
                         <td>Hoạt động</td>
                     </tr>
                     <tr>
                         <th scope="row">3</th>
                         <td colspan="2">Larry the Bird</td>
                         <td>@twitter</td>
-                        <td><a href="#">xem chi tiết</a></td>
+                        <td><a href="/admin/userconference">xem chi tiết</a></td>
                         <td>Hoạt động</td>
                     </tr>
                 </tbody>
