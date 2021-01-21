@@ -42,8 +42,8 @@
                 <p class="card-text">${e.name}.</p>
                 <div class="d-flex justify-content-between align-items-center">      
                   <div class="">
-                    <button type="button" class="btn btn-sm btn-outline-primary my-2" onclick="viewInfoConference(${i})">Chỉnh sửa</button>
-                    <button type="button" class="btn btn-sm btn-outline-danger my-2">Xóa</button>                   
+                    <button type="button" class="btn btn-sm btn-outline-primary my-2" href="/admin/editconference" onclick="viewInfoConference(${i})">Chỉnh sửa hội nghị</button>
+                    <button type="button" class="btn btn-sm btn-outline-danger my-2">Xóa hội nghị</button>                   
                   </div>
                   <small class="text-muted">9 mins</small>
                 </div>
@@ -68,13 +68,15 @@
     </div>
 
     <div class="col-9">
-      <div class="p-4 d-flex justify-content-center">
+      <div class="p-4 mt-3 mb-3 d-flex justify-content-center">
         <a href="/admin/creatconference" class="btn btn-success rounded-pill"
           style=" width: 300px; background-color: #5AAC44; font-size: larger;">
           <i class="fa fa-plus" aria-hidden="true"></i>
           Thêm hội nghị
         </a>
       </div>
+
+      {{> filter_sort}}
 
 
 
@@ -94,7 +96,7 @@
                     lead-in to additional content. This content is a little bit longer.</p>
                   <div class="d-flex justify-content-between align-items-center">
                     <div class="">
-                      <a href="#" class="btn btn-outline-primary my-2">Chỉnh sửa</a>
+                      <a href="/admin/editconference" class="btn btn-outline-primary my-2">Chỉnh sửa</a>
                       <a href="#" class="btn btn-outline-danger my-2">Xóa</a>
                     </div>
                     <small class="text-muted">9 mins</small>
