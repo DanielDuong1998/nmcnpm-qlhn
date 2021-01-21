@@ -1,0 +1,99 @@
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-3">
+      {{> navmenuadmin}}
+    </div>
+
+    <div class="col-9">
+      {{!-- Form Tìm kiếm --}}
+      <form class="row mt-3" style="border-bottom: 1px solid gray;">
+        <div class="col-auto">
+          <input type="text" class="form-control" id="name" placeholder="Tìm theo tên user">
+        </div>
+        <div class="col-auto">
+          <input type="email" class="form-control" id="email" placeholder="Tìm theo email" pattern="[0-9]{10}">
+        </div>
+        <div class="col-auto">
+          <input type="text" class="form-control" id="nameconference" placeholder="Tìm theo hội nghị">
+        </div>
+        <div class="col-auto">
+          <button type="button" class="btn btn-outline-primary mb-3">Tìm kiếm</button>
+        </div>
+      </form>
+
+      {{!-- Danh sách User đăng kí tham gia hội nghị--}}
+      <table class="table table-striped">
+        <strong class="d-inline-block p-3">
+          <h3> Danh sách User đăng kí tham gia hội nghị:</h3>
+        </strong>
+        <thead class="table-dark">
+          <tr>
+            <th scope="col"></th>
+            <th class="name  " scope="col">Họ và tên</th>
+            <th class="email  " scope="col">Địa chỉ email</th>
+            <th class="nameconference " scope="col">Hội nghị đăng kí tham gia</th>
+            <th class="" scope="col">Thông tin User</th>
+            <th class="" scope="col">Phê duyệt yêu cầu</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th scope="row">1</th>
+            <td>Dương Văn Khang</td>
+            <td>khang@gmail.com</td>
+            <td>Khóa học Ứng dụng SQL trong xử lý dữ liệu</td>
+            <td><a href="/admin/infouser/{{id}}">Xem chi tiết</a></td>
+            <td>
+              <div class="btn-group">
+                <button type="button" class="btn btn-sm btn-outline-success my-2">Phê duyệt</button>
+                <button type="button" class="btn btn-sm btn-outline-danger my-2">Hủy yêu cầu</button>
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <th scope="row">2</th>
+            <td>Hoàng Ngọc Kim Thanh</td>
+            <td>thanh@gmail.com</td>
+            <td>Khóa học Tổ chức và quản lý dữ liệu báo cáo trong Excel</td>
+            <td><a href="/admin/infouser">Xem chi tiết</a></td>
+            <td>
+              <div class="btn-group">
+                <button type="button" class="btn btn-sm btn-outline-success my-2">Phê duyệt</button>
+                <button type="button" class="btn btn-sm btn-outline-danger my-2">Hủy yêu cầu</button>
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <th scope="row">3</th>
+            <td>Trần Minh Thiện</td>
+            <td>thien@gmail.com</td>
+            <td>Khóa học Advanced Power Query</td>
+            <td><a href="/admin/infouser">Xem chi tiết</a></td>
+            <td>
+              <div class="btn-group">
+                <button type="button" class="btn btn-sm btn-outline-success my-2">Phê duyệt</button>
+                <button type="button" class="btn btn-sm btn-outline-danger my-2">Hủy yêu cầu</button>
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <th scope="row">4</th>
+            <td>Nguyễn Thị Mỹ Tiên</td>
+            <td>tien@gmail.com</td>
+            <td>Khóa học Ứng dụng SQL trong xử lý dữ liệu</td>
+            <td><a href="/admin/infouser">Xem chi tiết</a></td>
+            <td>
+              <div class="btn-group">
+                <button type="button" class="btn btn-sm btn-outline-success my-2">Phê duyệt</button>
+                <button type="button" class="btn btn-sm btn-outline-danger my-2">Hủy yêu cầu</button>
+              </div>
+            </td>
+          </tr>
+
+
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+</div>

@@ -43,17 +43,20 @@ router.post('/', urlencodedParser, async(req, res) => {
 });
 
 // mấy đường đẫn để test view
-router.get('/newConference', function(req, res) {
-    res.render('viewAdmin/newConference');
+router.get('/creatconference', function(req, res) {
+    res.render('vwAdmin/creatconference');
 });
-router.get('/userManage', function(req, res) {
-    res.render('viewAdmin/userManage');
+router.get('/manageuser', function(req, res) {
+    res.render('vwAdmin/manageuser');
 });
-router.get('/allInfoU', function(req, res) {
-    res.render('viewAdmin/allInfoU');
+router.get('/alluser', function(req, res) {
+    res.render('vwAdmin/alluser');
 });
-router.get('/singleInfoU', function(req, res) {
-    res.render('viewAdmin/singleInfoU');
+router.get('/singleuser', function(req, res) {
+    res.render('vwAdmin/singleuser');
+});
+router.get('/acceptuser', function(req, res) {
+    res.render('vwAdmin/acceptuser');
 });
 
 ////////////////////////////////////////

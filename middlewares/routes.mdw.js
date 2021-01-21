@@ -7,23 +7,11 @@ module.exports = function (app) {
     });
 
     app.get('/bs4', function (req, res) {
-        const show = +req.query.show || 0;
-        const visible = show !== 0;
-        res.render('bs4', {
-            layout: false,
-            data: { visible: visible }
-        });
+        res.render('bs4');
     });
 
     app.get('/index', function (req, res) {
         res.render('vwUser/index');
-        // const show = +req.query.show || 0;
-        // const visible = show !== 0;
-
-        // res.render('index', {
-        //     layout: false,
-        //     data: { visible: visible }
-        // });
     });
 
     app.get('/login', function (req, res) {
@@ -68,6 +56,7 @@ module.exports = function (app) {
     // app.use('/account', require('../routes/account.route'));
     app.use('/auth', require('../routes/auth.route'));
     app.use('/user', require('../routes/user.route'));
+    app.use('/admin', require('../routes/admin.route'));
     app.use('/conference', require('../routes/conference.route'));
     app.use('/conference-participant', require('../routes/conferenceParticipant.route'));
     app.use('/venue', require('../routes/venue.route'));
