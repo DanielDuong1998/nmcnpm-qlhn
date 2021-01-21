@@ -1,0 +1,87 @@
+<div class="bg-light">
+  <div class="row">
+    <div class="col-3">
+      {{> menuadmin}}
+    </div>
+
+    <div class="col-9">
+      {{!-- Form Tìm kiếm User bị chặn--}}
+      <form class="row mt-3" style="border-bottom: 1px solid gray;" >
+        <div class="col-auto">
+          <input type="text" class="form-control" id="name" placeholder="Tìm User theo tên">
+        </div>
+        <div class="col-auto">
+          <input type="user_name" class="form-control" id="user_name" placeholder="Tìm theo Username">
+        </div>
+         <div class="col-auto">
+          <input type="email" class="form-control" id="email" placeholder="Tìm theo email" pattern="[0-9]{10}">
+        </div>
+        <div class="col-auto">
+          <button type="button" class="btn btn-outline-danger mb-3">Tìm kiếm User bị chặn</button>
+        </div>
+      </form>
+
+      {{!-- Danh sách User bị chặn--}}
+      <table class="table table-striped">
+        <strong class="text-danger d-inline-block p-3">
+          <h3> Danh sách User bị chặn</h3>
+        </strong>
+        <thead class="text-light bg-danger">
+          <tr>
+            <th scope="col">STT</th>
+            <th class="name" scope="col">Họ và tên</th>
+            <th class="user_name" scope="col">Username</th>
+            <th class="email" scope="col">Địa chỉ email</th>
+            <th class="" scope="col">Thông tin User</th>
+            <th class="" scope="col"></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th scope="row">1</th>
+            <td>Dương Văn Khang</td>
+            <td>dvkhang</td>
+            <td>khang@gmail.com</td>
+            <td><a href="/admin/infouser/{{id}}">Xem chi tiết</a></td>
+            <td>
+                <button type="button" class="btn btn-sm btn-outline-danger my-2">Bỏ chặn</button>
+            </td>
+          </tr>
+          <tr>
+            <th scope="row">2</th>
+            <td>Hoàng Ngọc Kim Thanh</td>
+            <td>hnkthanh</td>
+            <td>thanh@gmail.com</td>
+           <td><a href="/admin/infouser/{{id}}">Xem chi tiết</a></td>
+            <td>
+                <button type="button" class="btn btn-sm btn-outline-danger my-2">Bỏ chặn</button>
+            </td>
+          </tr>
+          <tr>
+            <th scope="row">3</th>
+            <td>Trần Minh Thiện</td>
+            <td>tmthien</td>
+            <td>thien@gmail.com</td>
+             <td><a href="/admin/infouser/{{id}}">Xem chi tiết</a></td>
+            <td>
+                <button type="button" class="btn btn-sm btn-outline-danger my-2">Bỏ chặn</button>
+            </td>
+          </tr>
+          <tr>
+            <th scope="row">4</th>
+            <td>Nguyễn Thị Mỹ Tiên</td>
+            <td>ntmtien</td>
+            <td>tien@gmail.com</td>
+           <td><a href="/admin/infouser/{{id}}">Xem chi tiết</a></td>
+            <td>
+                <button type="button" class="btn btn-sm btn-outline-danger my-2">Bỏ chặn</button>
+            </td>
+          </tr>
+
+
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+</div>

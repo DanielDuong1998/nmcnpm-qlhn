@@ -42,22 +42,40 @@ router.post('/', urlencodedParser, async(req, res) => {
 
 });
 
-// mấy đường đẫn để test view
+// view của quản lý hội nghị
+router.get('/manageconference', function(req, res) {
+    res.render('vwAdmin/manageconference');
+});
 router.get('/creatconference', function(req, res) {
     res.render('vwAdmin/creatconference');
 });
+
+
+
+
+// view của quản lý user 
 router.get('/manageuser', function(req, res) {
     res.render('vwAdmin/manageuser');
 });
 router.get('/alluser', function(req, res) {
     res.render('vwAdmin/alluser');
 });
+router.get('/userbanned', function(req, res) {
+    res.render('vwAdmin/userbanned');
+});
 router.get('/singleuser', function(req, res) {
     res.render('vwAdmin/singleuser');
 });
+
+
+
+// view chấp nhận yêu cầu của user 
 router.get('/acceptuser', function(req, res) {
     res.render('vwAdmin/acceptuser');
 });
+
+
+
 
 ////////////////////////////////////////
 const checkUsername = async username => {
@@ -71,4 +89,3 @@ const checkEmail = async email => {
 }
 
 module.exports = router;
-//adddddd
