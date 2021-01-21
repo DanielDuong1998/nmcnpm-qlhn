@@ -42,19 +42,40 @@ router.post('/', urlencodedParser, async(req, res) => {
 
 });
 
-// mấy đường đẫn để test view
-router.get('/newConference', function(req, res) {
-    res.render('viewAdmin/newConference');
+// view của quản lý hội nghị
+router.get('/manageconference', function(req, res) {
+    res.render('vwAdmin/manageconference');
 });
-router.get('/userManage', function(req, res) {
-    res.render('viewAdmin/userManage');
+router.get('/creatconference', function(req, res) {
+    res.render('vwAdmin/creatconference');
 });
-router.get('/allInfoU', function(req, res) {
-    res.render('viewAdmin/allInfoU');
+
+
+
+
+// view của quản lý user 
+router.get('/manageuser', function(req, res) {
+    res.render('vwAdmin/manageuser');
 });
-router.get('/singleInfoU', function(req, res) {
-    res.render('viewAdmin/singleInfoU');
+router.get('/alluser', function(req, res) {
+    res.render('vwAdmin/alluser');
 });
+router.get('/userbanned', function(req, res) {
+    res.render('vwAdmin/userbanned');
+});
+router.get('/singleuser', function(req, res) {
+    res.render('vwAdmin/singleuser');
+});
+
+
+
+// view chấp nhận yêu cầu của user 
+router.get('/acceptuser', function(req, res) {
+    res.render('vwAdmin/acceptuser');
+});
+
+
+
 
 ////////////////////////////////////////
 const checkUsername = async username => {
@@ -68,4 +89,3 @@ const checkEmail = async email => {
 }
 
 module.exports = router;
-//adddddd
