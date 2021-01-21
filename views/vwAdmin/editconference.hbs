@@ -1,0 +1,109 @@
+<div class="row bg-light">
+  <div class="col-3">
+    {{> menuadmin}}
+  </div>
+
+  <div class="col-9 mt-3">
+    <div class="container mb-3">
+
+      <form class="needs-validation" novalidate>
+        <strong class="d-inline-block p-3">
+          <h3> Chỉnh sửa thông tin hội nghị</h3>
+        </strong>
+        <div class="row mb-3">
+          <label for="validationCustom01" class="col-md-2 form-label">Tên hội nghị</label>
+          <input type="text" class="col form-control" id="nameConfer" required>
+          <div class="invalid-feedback">
+            Không được bỏ trống!
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label for="validationCustom01" class="col-md-2 form-label">Mô tả ngắn gọn</label>
+          <input type="text" class="col form-control" id="decriptSort" required>
+          <div class="invalid-feedback">
+            Không được bỏ trống!
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label for="validationCustom01" class="col-md-2 form-label">Mô tả chi tiết</label>
+          <textarea class="col form-control" rows="5" type="text" id="decriptLong" required></textarea>
+          <div class="invalid-feedback">
+            Không được bỏ trống!
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label for="validationCustom01" class="col-md-2 form-label">Thời gian bắt đầu</label>
+          <input type="date" class="col form-control" id="dateBĐ" required>
+          <div class="invalid-feedback">
+            Không được bỏ trống!
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label for="validationCustom01" class="col-md-2 form-label">Thời gian kết thúc</label>
+          <input type="date" class="col form-control" id="dateKT" required>
+          <div class="invalid-feedback">
+            Không được bỏ trống!
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label for="validationCustom01" class="col-md-2 form-label">Địa điểm tổ chức</label>
+          <input type="text" class="col form-control" id="location" required>
+          <div class="invalid-feedback">
+            Không được bỏ trống!
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label for="validationCustom01" class="col-md-2 form-label">Tổng số người tham dự</label>
+          <input type="text" class="col form-control" id="sl" required>
+          <div class="invalid-feedback">
+            Không được bỏ trống!
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label for="validationCustom01" class="col-md-2 form-label">Hình ảnh</label>
+          <input type="file" class="col form-control" id="picture" required>
+          <div class="invalid-feedback">
+            Không được bỏ trống!
+          </div>
+        </div>
+
+
+        <div class="p-4 mt-3 d-flex justify-content-center">
+          <button type="button" class="btn btn-success rounded-pill"
+            style="width:300px ; background-color: #5AAC44; font-size: larger;" onclick="save()">
+            Lưu
+          </button>
+        </div>
+
+      </form>
+    </div>
+  </div>
+  <script>
+    (function () {
+      'use strict'
+
+      // Fetch all the forms we want to apply custom Bootstrap validation styles to
+      var forms = document.querySelectorAll('.needs-validation')
+
+      // Loop over them and prevent submission
+      Array.prototype.slice.call(forms)
+        .forEach(function (form) {
+          form.addEventListener('submit', function (event) {
+            if (!form.checkValidity()) {
+              event.preventDefault()
+              event.stopPropagation()
+            }
+
+            form.classList.add('was-validated')
+          }, false)
+        })
+    })()
+  </script>
+</div>
