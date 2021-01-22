@@ -5,14 +5,6 @@ module.exports = function (app) {
         res.render('home');
     });
 
-    app.get('/bs4', function (req, res) {
-        res.render('bs4');
-    });
-
-    app.get('/index', function (req, res) {
-        res.render('vwUser/index');
-    });
-
     app.get('/login', function (req, res) {
         res.render('vwAuth/login', {
             layout: false
@@ -29,13 +21,7 @@ module.exports = function (app) {
         })
     });
 
-    app.get('/bs4copy', function (req, res) {
-        res.render('bs4copy')
-    });
 
-    app.get('/bs4', function (req, res) {
-        res.render('bs4')
-    });
     app.get('/info', function (req, res) {
         res.render('vwUser/info')
     });
