@@ -26,7 +26,7 @@
         <a class="nav-link dropdown-toggle text-light" href="#" id="navbarDropdown" role="button"
           data-bs-toggle="dropdown" aria-expanded="false">
           <i class="fa fa-user-circle-o" aria-hidden="true"></i>
-          {{#each this.user}}            
+          {{#each this.user}}
           <b>{{name}}</b>
           {{/each}}
         </a>
@@ -136,7 +136,7 @@
       const logOut = _ => {
         console.log('log out')
         localStorage.clear();
-        location.reload();
+        location.href = 'http://localhost:3000';
       }
 
       //<a class="dropdown-item" href="javascript: $('#frmLogout').submit();">

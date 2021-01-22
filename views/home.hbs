@@ -13,6 +13,7 @@
     $(_ => {
       let idO = localStorage.getItem(`con${id}`);
       localStorage.setItem('conferenceCurrent', idO);
+      location.href = 'http://localhost:3000/infoconference';
     })
   }
 

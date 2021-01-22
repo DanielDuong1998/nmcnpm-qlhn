@@ -35,6 +35,15 @@ router.post('/', async (req, res) => {
     })
 })
 
+router.get('/list', async (req, res) => {
+    let ret = await conferenceParticipantModel.listParticipant();
+
+    res.json({
+        status: 1,
+        data: ret
+    })
+})
+
 router.post('/check', async (req, res) => {
     const { user_id, conference_id } = req.body;
     console.log('check')
@@ -64,6 +73,16 @@ router.post('/check', async (req, res) => {
     console.log('status 0 nef: ', status[0]);
     res.json({
         data: ret
+    })
+})
+
+router.post('/approval', async (req, res) => {
+    const { id, mode } = req.body;
+    console.log('id-mode: ', id, '-', mode)
+    await conferenceParticipantModel.approval(id, mode);
+    res.json({
+        status: 1,
+        msg: 'approval completed'
     })
 })
 

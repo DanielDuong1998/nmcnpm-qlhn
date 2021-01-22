@@ -11,7 +11,7 @@
  Target Server Version : 100414
  File Encoding         : 65001
 
- Date: 07/01/2021 14:24:52
+ Date: 22/01/2021 16:35:59
 */
 
 SET NAMES utf8mb4;
@@ -81,6 +81,16 @@ CREATE TABLE `conference_participants`  (
 ) ENGINE = InnoDB CHARACTER SET = utf8 COLLATE = utf8_unicode_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
+-- Records of conference_participants
+-- ----------------------------
+INSERT INTO `conference_participants` VALUES ('07985a9e-ec13-43d1-a865-261636e546b9', '484066f2-d29c-48d9-8eaa-bbb48a9d9f0a', 'fd5bd7a4-52c3-474d-a482-74e01b318311', 0);
+INSERT INTO `conference_participants` VALUES ('0b5f4e42-a819-45a2-ad53-5aedc31f94d6', 'ff55b3dc-5e85-42ea-ac10-74b529cc3447', 'fd5bd7a4-52c3-474d-a482-74e01b318311', 0);
+INSERT INTO `conference_participants` VALUES ('38e39baf-6067-47c6-8131-daa143726480', '80862c4c-e2b2-4fc5-a5bd-d78062f8a9ca', 'fd5bd7a4-52c3-474d-a482-74e01b318311', 0);
+INSERT INTO `conference_participants` VALUES ('dea1861f-cf92-4c2c-9116-173a6a133ee5', '0b86ca12-57c2-45e4-87fb-237d46455567', '002e7e4f-325c-4f71-b98f-f4ac8ed704a0', 0);
+INSERT INTO `conference_participants` VALUES ('ed316889-d735-4402-b4e2-9155a08433b1', '324d2e95-d4b6-4824-ab65-947954c34574', '002e7e4f-325c-4f71-b98f-f4ac8ed704a0', 0);
+INSERT INTO `conference_participants` VALUES ('f3ffd36c-6ce5-486f-b562-bd8a9fdcf326', '324d2e95-d4b6-4824-ab65-947954c34574', 'fd5bd7a4-52c3-474d-a482-74e01b318311', 0);
+
+-- ----------------------------
 -- Table structure for notification
 -- ----------------------------
 DROP TABLE IF EXISTS `notification`;
@@ -114,8 +124,9 @@ CREATE TABLE `user`  (
 -- ----------------------------
 -- Records of user
 -- ----------------------------
+INSERT INTO `user` VALUES ('002e7e4f-325c-4f71-b98f-f4ac8ed704a0', 'Hoàng Văn Long', 'hvlong', '$2a$08$vhnHz/9bCgKNewPIRF9ofuLZMRxh8Ks1qgL19.vqd1SWbItjnj..O', 'hvlong@gmail.com', NULL, 1, 'VAvWiWue8z65zJTYNkI6U696sdod3nlNxKIwgjcD6317YKmeUMiuN5q4EyVUbzVr3UcaUZD5VuP2TSK4');
 INSERT INTO `user` VALUES ('61a66363-e6bd-40dd-8588-e58bc92ebe4a', 'Âu Dương Phong', 'auphong', '$2a$08$1GSbXW43U4gH.4h3zsqD5uNuri/yuI/948Pv1QpQ48ChJT7qH6O7C', 'auphong009@gmail.com', NULL, 1, 'wm19zMdOWq9zJFoaaBiUT9kuPBt44stBiJn8bhwlEvNGKdDUn64nUuWDhMq01ld5NnW9NlRiPkpZcLJw');
-INSERT INTO `user` VALUES ('fd5bd7a4-52c3-474d-a482-74e01b318311', 'Dương Văn Khang', 'dvkhangnt', '$2a$08$T2ZVhRRcOFDI6MsNTfrlqOUPrJdiRCytrDro57NY6VOvF2ml0hcjO', 'dvkhangnt@gmail.com', NULL, 1, 'WDFMc0jE43xkGVWWFAIb11hERAmeDVuL9vNXYxLIUlMbYg0Lq7k3rVAhnnU94GlNOtRuX2FFLwASYz31');
+INSERT INTO `user` VALUES ('fd5bd7a4-52c3-474d-a482-74e01b318311', 'Dương Văn Khang', 'dvkhangnt', '$2a$08$P6qDJNQC1RvBdFDZ3ERDN.l2LHOcRRwXxWygF9bSUjDAxS1YT7EWi', 'dvkhangnt@gmail.comm', '0347347185', 1, 'WDFMc0jE43xkGVWWFAIb11hERAmeDVuL9vNXYxLIUlMbYg0Lq7k3rVAhnnU94GlNOtRuX2FFLwASYz31');
 
 -- ----------------------------
 -- Table structure for venue

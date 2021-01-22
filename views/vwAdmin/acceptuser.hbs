@@ -36,7 +36,7 @@
             <th class="" scope="col">Phê duyệt yêu cầu</th>
           </tr>
         </thead>
-        <tbody>
+        <tbody id="table">
           <tr>
             <th scope="row">1</th>
             <td>Dương Văn Khang</td>
@@ -95,5 +95,58 @@
       </table>
     </div>
   </div>
+  <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+
+  <script>
+
+    const approval = (id, mode) => { // mode = 1, phe duyet, mode = 2 huy yeu cau
+      $(_ => {
+        let idPar = localStorage.getItem("participant" + id);
+        let data = { id: idPar, mode };
+        $.ajax({
+          url: 'http://localhost:3000/conference-participant/approval',
+          method: 'POST',
+          dataType: 'json',
+          data
+        }).done(data1 => {
+          console.log('data: ', data1);
+          location.reload();
+        })
+      })
+    }
+
+    $(_ => {
+      $.ajax({
+        url: 'http://localhost:3000/conference-participant/list',
+        method: 'GET',
+        dataType: 'json'
+      }).done(data1 => {
+        console.log('data1: ', data1);
+        let table = document.getElementById('table');
+        let str = '';
+        data1.data.forEach((e, i) => {
+          localStorage.setItem('participant' + i, e.id);
+
+          str += `<tr>
+            <th scope="row">${i + 1}</th>
+            <td>${e.name}</td>
+            <td>${e.email}</td>
+            <td>${e.conference_name}</td>
+            <td><a href="/admin/userconference">Xem chi tiết</a></td>
+            <td>
+              <div class="btn-group">
+                <button onclick="approval(${i}, ${1})" type="button" class="btn btn-sm btn-outline-success my-2">Phê duyệt</button>
+                <button onclick="approval(${i},${-1})" type="button" class="btn btn-sm btn-outline-danger my-2">Hủy yêu cầu</button>
+              </div>
+            </td>
+          </tr>`;
+        })
+
+        table.innerHTML = str;
+      })
+
+
+    })
+  </script>
 
 </div>
