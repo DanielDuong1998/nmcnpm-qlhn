@@ -1,36 +1,35 @@
-
-
 {{#section 'css'}}
 
 {{/section}}
- 
+
 {{#section 'js'}}
-      <script>
-    console.log('get here')
+<script>
+  console.log('get here')
 
-    const viewInfoConference = id => {
-      $(_ => {
-        let idO = localStorage.getItem(`con${id}`);
-        localStorage.setItem('conferenceCurrent', idO);
-      })
+  const viewEditConference = id => {
+    $(_ => {
+      let idO = localStorage.getItem(`con${id}`);
+      localStorage.setItem('conferenceCurrent', idO);
+      location.href = 'http://localhost:3000/admin/editconference';
+    })
+  }
+
+  $.ajax({
+    url: 'http://localhost:3000/conference',
+    method: 'GET',
+    dataType: 'json',
+    beforeSend: request => {
+      request.setRequestHeader('x-access-token', localStorage.getItem('x-access-token'));
     }
+  }).done(data => {
+    let html = document.getElementById("mainBody");
+    let str = '';
+    console.log('data: ', data.data);
 
-    $.ajax({
-      url: 'http://localhost:3000/conference',
-      method: 'GET',
-      dataType: 'json',
-      beforeSend: request => {
-        request.setRequestHeader('x-access-token', localStorage.getItem('x-access-token'));
-      }
-    }).done(data => {
-      let html = document.getElementById("mainBody");
-      let str = '';
-      console.log('data: ', data.data);
+    data.data.forEach((e, i) => {
+      localStorage.setItem(`con${i}`, e.id);
 
-      data.data.forEach((e, i) => {
-        localStorage.setItem(`con${i}`, e.id);
-
-        str += `
+      str += `
         <div class="col-md-4">
             <div class="card mb-4 box-shadow" style="height: 350px;">
               <img class="card-img-top"
@@ -42,7 +41,7 @@
                 <p class="card-text">${e.name}.</p>
                 <div class="">      
                   <div class="d-flex justify-content-center">
-                    <button type="button" class="btn btn-sm btn-outline-primary m-1 " href="/admin/editconference" onclick="viewInfoConference(${i})">Chỉnh sửa hội nghị</button>
+                    <button type="button" class="btn btn-sm btn-outline-primary m-1 " onclick="viewEditConference(${i})">Chỉnh sửa hội nghị</button>
                     <button type="button" class="btn btn-sm btn-outline-danger m-1 ">Xóa hội nghị</button>                   
                   </div>
                   <small class="text-muted">9 mins</small>
@@ -51,17 +50,17 @@
             </div>
           </div>
         `;
-      })
-      html.innerHTML = str;
-      //
+    })
+    html.innerHTML = str;
+    //
 
-    });
-  </script>
+  });
+</script>
 {{/section}}
 
 
 
-<div class="bg-light" >
+<div class="bg-light">
   <div class="row">
     <div class="col-3">
       {{> menuadmin}}
