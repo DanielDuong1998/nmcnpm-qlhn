@@ -27,7 +27,7 @@
           </div>
         </div>
 
-        {{!-- phần của user  --}}
+        {{!-- phần của user --}}
         <div class="col-auto p-4 d-flex flex-column position-static">
           <button type="button" class="btn btn-success rounded-pill w-100 mb-3"
             style="height: 55px; background-color: #5AAC44; font-size: larger;">
@@ -36,7 +36,30 @@
               Đăng ký tham gia
             </strong>
           </button>
+
+          {{!-- khi user đã bấm nút đăng kí nhưng chưa được admin duyệt
+          <button type="button" class="btn btn-danger rounded-pill w-100 mb-3"
+            style="height: 55px; background-color: #FF4444; font-size: larger;">
+            <strong>
+              Đang chờ phê duyệt
+            </strong>
+          </button>
+
+          {{!-- khi user đã đăng kí tham gia hội nghị thành công --}}
+          <button type="button" class="btn btn-success rounded-pill w-100 mb-3"
+            style="height: 55px; background-color: #5AAC44; font-size: larger;">
+            <strong>
+              <i class="fa fa-check" aria-hidden="true"></i>
+              Đã đăng kí
+            </strong>
+          </button> --}}
+
         </div>
+
+
+
+
+
 
 
         {{!-- phần của admin --}}
@@ -48,7 +71,7 @@
               Chỉnh sửa thông tin
             </strong>
           </button>
-          <button type="button" class="btn btn-success rounded-pill w-100"
+          <button type="button" class="btn btn-danger rounded-pill w-100"
             style="height: 55px; background-color: #FF4444; font-size: larger;">
             <strong>
               Danh sách User bị chặn
