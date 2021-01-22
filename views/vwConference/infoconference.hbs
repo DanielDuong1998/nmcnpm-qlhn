@@ -27,7 +27,7 @@
           </div>
         </div>
 
-        {{!-- phần của user  --}}
+        {{!-- phần của user --}}
         <div class="col-auto p-4 d-flex flex-column position-static">
           <button type="button" class="btn btn-success rounded-pill w-100 mb-3"
             style="height: 55px; background-color: #5AAC44; font-size: larger;">
@@ -233,9 +233,6 @@
                 LỊCH HỌC: sáng T7 (09:00 - 12:00)
               </h5>
 
-
-
-
             </div>
           </div>
 
@@ -273,6 +270,23 @@
     </div>
 
   </div>
+
+  <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+
+  <script>
+    let idConference = localStorage.getItem('conferenceCurrent');
+    console.log('id conferences: ', idConference);
+
+    $(_ => {
+      $.ajax({
+        url: `http://localhost:3000/conference/id?id=${idConference}`,
+        method: 'GET',
+        dataType: 'json'
+      }).done(data => {
+        console.log('data: ', data);
+      })
+    });
+  </script>
 
 
 </div>

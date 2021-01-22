@@ -81,7 +81,7 @@
             </div>
           </div>
 
-     
+
         </div>
       </div>
     </div>
@@ -103,6 +103,7 @@
       $(_ => {
         let idO = localStorage.getItem(`con${id}`);
         localStorage.setItem('conferenceCurrent', idO);
+        location.href = "http://localhost:3000/infoconference";
       })
     }
 
