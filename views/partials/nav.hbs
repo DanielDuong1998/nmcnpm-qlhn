@@ -74,8 +74,23 @@
       let html = document.getElementById('ulNav');
       let isActive = localStorage.getItem('id');
       let str = '';
-      if (isActive) {
-        str = `<li class="nav-item dropdown">
+      let is_user = localStorage.getItem('is-user');
+      console.log('is_user: ', is_user);
+      if (is_user === undefined) {
+        str = `<li class="nav-item active">
+                <a class="btn btn-outline-light me-2" role="button" aria-expanded="false" href="/login">
+                  Đăng nhập
+                </a>
+              </li>
+              <li class="nav-item active">
+                <a class="btn btn-light" href="/signup">
+                  Đăng kí
+                </a>
+              </li>`;
+      }
+      else if (is_user == true) {
+        if (isActive) {
+          str = `<li class="nav-item dropdown">
         <a class="nav-link dropdown-toggle text-light" href="#" id="navbarDropdown" role="button"
           data-bs-toggle="dropdown" aria-expanded="false">
           <i class="fa fa-user-circle-o" aria-hidden="true"></i>
@@ -117,9 +132,67 @@
           Thông báo
         </a>
       </li>`;
+        }
+        else {
+          str = `<li class="nav-item active">
+          <a class="btn btn-outline-light me-2" role="button" aria-expanded="false" href="/login">
+            Đăng nhập
+          </a>
+        </li>
+        <li class="nav-item active">
+          <a class="btn btn-light" href="/signup">
+            Đăng kí
+          </a>
+        </li>`;
+        }
       }
       else {
-        str = `<li class="nav-item active">
+        if (isActive) {
+          str = `<li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle text-light" href="#" id="navbarDropdown" role="button"
+          data-bs-toggle="dropdown" aria-expanded="false">
+          <i class="fa fa-user-circle-o" aria-hidden="true"></i>
+          <b>${localStorage.getItem('name')}</b>
+        </a>
+        <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <li class="nav-item" style="border-bottom: 1px solid gray;">
+            <a class="dropdown-item" href="/admin/manageconference">
+              <img src="/public/images/iconqlhn.png" style="margin-right: 10px">
+              Quản lý hội nghị
+            </a>
+          </li>
+          <li class="nav-item" style="border-bottom: 1px solid gray">
+            <a class="dropdown-item" href="/admin/alluser">
+              <img src="/public/images/iconqlu.png" style="margin-right: 10px">
+              Quản lý User
+            </a>
+          </li>
+          <li class="nav-item" style="border-bottom: 1px solid gray">
+            <a class="dropdown-item" href="/admin/acceptuser">
+              <img src="/public/images/icontghn.png" style="margin-right: 10px">
+              Chấp nhận yêu cầu của User
+            </a>
+          </li>
+          <li>
+            <hr class="dropdown-divider">
+          </li>
+          <li>
+            <button onclick="logOut()" style="border-style: none; background-color: white;">
+              <i class="fa fa-sign-out" aria-hidden="true"></i>
+              Đăng xuất
+            </button>
+          </li>
+        </ul>
+      </li>
+      <li class="nav-item active">
+        <a class="nav-link" href="#">
+          <i class="fa fa-bell" aria-hidden="true"></i>
+          Thông báo
+        </a>
+      </li>`;
+        }
+        else {
+          str = `<li class="nav-item active">
         <a class="btn btn-outline-light me-2" role="button" aria-expanded="false" href="/login">
           Đăng nhập
         </a>
@@ -129,7 +202,9 @@
           Đăng kí
         </a>
       </li>`;
+        }
       }
+
 
       html.innerHTML = str;
 
