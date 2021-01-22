@@ -6,8 +6,8 @@
         "timeout": 3600000,
         "host": "localhost",
         "user": "root",
-        "database": "quanlyhoinghi",
-        "password": "root"
+        "database": "quanglyhoinghi",
+        "password": "password"
     },
     "auth": {
         "secretPassword": "HHIZ9ynjeYiPMFUEtC3heRm2HSjOPbqm",
