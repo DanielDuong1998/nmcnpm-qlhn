@@ -11,7 +11,8 @@ const urlencodedParser = bodyParser.urlencoded({ extended: false });
 
 /* GET users listing. */
 router.get('/', function(req, res, next) {
-    res.send('respond with a resource');
+    res.render('vwAdmin/manageConference/manageconference');
+    // res.send('respond with a resource');
 });
 
 //tao tai khoan
@@ -44,13 +45,13 @@ router.post('/', urlencodedParser, async(req, res) => {
 
 // view của quản lý hội nghị
 router.get('/manageconference', function(req, res) {
-    res.render('vwAdmin/manageconference');
+    res.render('vwAdmin/manageConference/manageconference');
 });
 router.get('/creatconference', function(req, res) {
-    res.render('vwAdmin/creatconference');
+    res.render('vwAdmin/manageConference/creatconference');
 });
 router.get('/editconference', function(req, res) {
-    res.render('vwAdmin/editconference');
+    res.render('vwAdmin/manageConference/editconference');
 });
 
 
@@ -58,20 +59,20 @@ router.get('/editconference', function(req, res) {
 
 // view của quản lý user 
 router.get('/manageuser', function(req, res) {
-    res.render('vwAdmin/manageuser');
+    res.render('vwAdmin/manageUser/manageuser');
 });
 router.get('/alluser', function(req, res) {
-    res.render('vwAdmin/alluser');
+    res.render('vwAdmin/manageUser/alluser');
 });
 router.get('/userbanned', function(req, res) {
-    res.render('vwAdmin/userbanned');
+    res.render('vwAdmin/manageUser/userbanned');
 });
 router.get('/singleuser', function(req, res) {
-    res.render('vwAdmin/singleuser');
+    res.render('vwAdmin/manageUser/singleuser');
 });
 
 router.get('/userconference', function(req, res) {
-    res.render('vwAdmin/userconference');
+    res.render('vwAdmin/manageUser/userconference');
 });
 
 // view chấp nhận yêu cầu của user 

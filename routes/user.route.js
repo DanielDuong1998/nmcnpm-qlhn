@@ -136,6 +136,10 @@ router.get('/info', function (req, res) {
     res.render('vwUser/info');
 })
 
+router.get('/registeredconference', function (req, res) {
+    res.render('vwUser/registeredconference');
+})
+
 router.get('/index', function (req, res) {
     res.render('vwUser/index');
 })

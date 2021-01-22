@@ -2,7 +2,6 @@
 
 module.exports = function (app) {
     app.get('/', function (req, res) {
-        // console.log(req.session.isAuth);
         res.render('home');
     });
 

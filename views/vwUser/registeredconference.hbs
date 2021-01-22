@@ -1,36 +1,34 @@
-
-
 {{#section 'css'}}
 
 {{/section}}
- 
+
 {{#section 'js'}}
-      <script>
-    console.log('get here')
+<script>
+  console.log('get here')
 
-    const viewInfoConference = id => {
-      $(_ => {
-        let idO = localStorage.getItem(`con${id}`);
-        localStorage.setItem('conferenceCurrent', idO);
-      })
+  const viewInfoConference = id => {
+    $(_ => {
+      let idO = localStorage.getItem(`con${id}`);
+      localStorage.setItem('conferenceCurrent', idO);
+    })
+  }
+
+  $.ajax({
+    url: 'http://localhost:3000/conference',
+    method: 'GET',
+    dataType: 'json',
+    beforeSend: request => {
+      request.setRequestHeader('x-access-token', localStorage.getItem('x-access-token'));
     }
+  }).done(data => {
+    let html = document.getElementById("mainBody");
+    let str = '';
+    console.log('data: ', data.data);
 
-    $.ajax({
-      url: 'http://localhost:3000/conference',
-      method: 'GET',
-      dataType: 'json',
-      beforeSend: request => {
-        request.setRequestHeader('x-access-token', localStorage.getItem('x-access-token'));
-      }
-    }).done(data => {
-      let html = document.getElementById("mainBody");
-      let str = '';
-      console.log('data: ', data.data);
+    data.data.forEach((e, i) => {
+      localStorage.setItem(`con${i}`, e.id);
 
-      data.data.forEach((e, i) => {
-        localStorage.setItem(`con${i}`, e.id);
-
-        str += `
+      str += `
         <div class="col-md-4">
             <div class="card mb-4 box-shadow" style="height: 350px;">
               <img class="card-img-top"
@@ -40,44 +38,36 @@
                 data-holder-rendered="true">
               <div class="card-body">
                 <p class="card-text">${e.name}.</p>
-                <div class="d-flex justify-content-between align-items-center">      
-                  <div class="">
-                    <button type="button" class="btn btn-sm btn-outline-primary my-2" href="/admin/editconference" onclick="viewInfoConference(${i})">Chỉnh sửa hội nghị</button>
-                    <button type="button" class="btn btn-sm btn-outline-danger my-2">Xóa hội nghị</button>                   
+                <div class="">      
+                  <div class="d-flex justify-content-center">
+                    <button type="button" class="btn btn-sm btn-outline-primary my-2" href="/user/registeredconference" onclick="viewInfoConference(${i})">Xem thông tin chi tiết hội nghị</button>                
                   </div>
-                  <small class="text-muted">9 mins</small>
+                  <small class="text-muted"></small>
                 </div>
               </div>
             </div>
           </div>
         `;
-      })
-      html.innerHTML = str;
-      //
+    })
+    html.innerHTML = str;
+    //
 
-    });
-  </script>
+  });
+</script>
 {{/section}}
 
 
 
-<div class="bg-light" >
-  <div class="row">
-    <div class="col-3">
-      {{> menuadmin}}
-    </div>
+<div class="" style="background-color: rgb(211, 239, 253);">
+  <div class="container-fluid p-3">
 
-    <div class="col-9">
-      <div class="p-4 mt-3 mb-3 d-flex justify-content-center">
-        <a href="/admin/creatconference" class="btn btn-success rounded-pill"
-          style=" width: 300px; background-color: #5AAC44; font-size: larger;">
-          <i class="fa fa-plus" aria-hidden="true"></i>
-          Thêm hội nghị
-        </a>
-      </div>
+    <div>
+
+      <h1 class="text-primary p-3 d-flex justify-content-center">
+        Danh sách hội nghị đã đăng kí tham gia
+      </h1>
 
       {{> filter_sort}}
-
 
 
       <div class="conference py-5">
@@ -96,8 +86,7 @@
                     lead-in to additional content. This content is a little bit longer.</p>
                   <div class="d-flex justify-content-between align-items-center">
                     <div class="">
-                      <a href="/admin/editconference" class="btn btn-outline-primary my-2">Chỉnh sửa</a>
-                      <a href="#" class="btn btn-outline-danger my-2">Xóa</a>
+                      <a href="/user/registeredconference" class="btn btn-outline-primary my-2">Xem thông tin chi tiết hội nghị</a>
                     </div>
                     <small class="text-muted">9 mins</small>
                   </div>
@@ -116,8 +105,7 @@
                     lead-in to additional content. This content is a little bit longer.</p>
                   <div class="d-flex justify-content-between align-items-center">
                     <div class="">
-                      <a href="#" class="btn btn-outline-primary my-2">Chỉnh sửa</a>
-                      <a href="#" class="btn btn-outline-danger my-2">Xóa</a>
+                      <a href="/user/registeredconference" class="btn btn-outline-primary my-2">Xem thông tin chi tiết hội nghị</a>
                     </div>
                     <small class="text-muted">9 mins</small>
                   </div>
@@ -135,9 +123,8 @@
                   <p class="card-text">This is a wider card with supporting text below as a natural
                     lead-in to additional content. This content is a little bit longer.</p>
                   <div class="d-flex justify-content-between align-items-center">
-                    <div class="">
-                      <a href="#" class="btn btn-outline-primary my-2">Chỉnh sửa</a>
-                      <a href="#" class="btn btn-outline-danger my-2">Xóa</a>
+                   <div class="">
+                      <a href="/user/registeredconference" class="btn btn-outline-primary my-2">Xem thông tin chi tiết hội nghị</a>
                     </div>
                     <small class="text-muted">9 mins</small>
                   </div>
