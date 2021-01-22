@@ -49,6 +49,11 @@
                 <label class="form-check-label" for="exampleCheck1">Lưu lại trạng thái đăng nhập</label>
               </div>
 
+              <select class="form-select" aria-label="Default select example" id="selectMode">
+                <option selected value="1">Người dùng</option>
+                <option value="2">Quản trị viên</option>
+              </select>
+
               <button class="btn btn-success rounded-pill w-100"
                 style="height: 55px; background-color: #5AAC44; font-size: larger;" type="button" onclick="login()">
                 Đăng nhập
@@ -82,12 +87,15 @@
     const login = _ => {
       console.log('login here!!!')
       $(_ => {
+        let mode = document.getElementById('selectMode');
+        console.log('mode nè: ', mode.value)
+
         let data = {
           user_name: $('#txtUsername').val(),
           password: $('#txtPassword').val(),
-          mode: 1
+          mode: mode.value
         };
-        
+
         $.ajax({
           url: 'http://localhost:3000/auth',
           method: 'POST',
@@ -96,17 +104,31 @@
           timeout: 10000
         }).done(data => {
           let { status, access_token, refresh_token, id, user_name, name, email } = data;
+          console.log('isActive: ', data.is_active);
 
 
           if (status === 1) {
-         
-            localStorage.setItem('x-access-token', access_token);
-            localStorage.setItem('x-refresh-token', refresh_token);
-            localStorage.setItem('id', id);
-            localStorage.setItem('user_name', user_name);
-            localStorage.setItem('name', name);
-            localStorage.setItem('email', email);
-            location.href = './';
+            if (data.is_active == 1) {
+              localStorage.setItem('is-user', true);
+              localStorage.setItem('x-access-token', access_token);
+              localStorage.setItem('x-refresh-token', refresh_token);
+              localStorage.setItem('id', id);
+              localStorage.setItem('user_name', user_name);
+              localStorage.setItem('name', name);
+              localStorage.setItem('email', email);
+              location.href = './';
+            }
+            else {
+              localStorage.setItem('is-user', false);
+              localStorage.setItem('x-access-token', access_token);
+              localStorage.setItem('x-refresh-token', refresh_token);
+              localStorage.setItem('id', id);
+              localStorage.setItem('user_name', user_name);
+              localStorage.setItem('name', name);
+              localStorage.setItem('email', email);
+              location.href = 'http://localhost:3000/admin/manageconference';
+            }
+
           }
           else {
             console.log('login failed');

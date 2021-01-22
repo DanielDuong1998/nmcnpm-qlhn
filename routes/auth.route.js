@@ -37,7 +37,7 @@ router.post('/', urlencodedParser, async (req, res) => {
 
 
     let ret = await login(entity, body);
-    
+
     res.json(ret);
 
 
@@ -58,6 +58,7 @@ const generateRefreshToken = _ => {
 const login = async (entity, body) => {
     let ret = '';
     const row = body.mode == 1 ? await authModel.loginUser(entity) : await authModel.loginAdmin(entity);
+    console.log('body mode: ', body.mode, ' entity: ', entity, ' row: ', row)
     if (row === null) {
         ret = { status: 0, msg: 'authenticatied false' };
     }
@@ -78,6 +79,7 @@ const login = async (entity, body) => {
             userModel.updateRefreshToken(row.id, refresh_token);
         else
             adminModel.updateRefreshToken(row.id, refresh_token);
+
 
         ret = {
             status: 1,
